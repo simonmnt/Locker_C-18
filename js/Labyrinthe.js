@@ -31,8 +31,6 @@ function Labyrinthe(_mazes, _lvl) {
 	this.afficherCarte = function()
 	{
 		ctx.drawImage(iciLab.image,0,0,960,640);
-	}
-	
 	};
 
 	this.popMonster = function () {

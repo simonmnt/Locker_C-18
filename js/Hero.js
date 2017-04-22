@@ -15,8 +15,8 @@ var hero = new Hero(src, _x, _y)
 // Position start hero
 var startPositionHeroX;
 var startPositionHeroY;
-hero.x = startPositionHeroX - hero.Image.width / 2;
-hero.y = startPositionHeroY - hero.Image.height / 2;
+hero.x = _x - hero.Image.width / 2;
+hero.y = _y - hero.Image.height / 2;
 
 function animationHero(){
 		if(_y == 1 && _x == 1){
@@ -24,7 +24,7 @@ function animationHero(){
 			_x = 0;
 			console.log('Si arriver au bout, on reviens a début');
 		}else{
-			ctx.drawImage(bomber.Image, _x*32, _y*32, 32, 32, bomber.x, bomber.y, 32, 32);
+			ctx.drawImage(hero.Image, _x*32, _y*32, 32, 32, hero.x, hero.y, 32, 32);
 			if(_x == 1){
 				_x = 0;
 				_y++;

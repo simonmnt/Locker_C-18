@@ -22,12 +22,15 @@ function animationHero(){
 		if(_y == 1 && _x == 1){
 			_y = 0;
 			_x = 0;
+			console.log('Si arriver au bout, on reviens a début');
 		}else{
 			ctx.drawImage(bomber.Image, _x*32, _y*32, 32, 32, bomber.x, bomber.y, 32, 32);
 			if(_x == 1){
 				_x = 0;
 				_y++;
+			console.log('Si au début, on augment Y de 1');
 		}
 				_x++;
+			console.log('puis on augment X de 1');
 		}
 }

@@ -1,6 +1,5 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
-    var triCases = [];
     this.cases = [];
 
 	this.image = new Image();
@@ -79,6 +78,7 @@ function Labyrinthe(_mazes, _lvl) {
      * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
      */
 	this.popMonster = function () {
+        var triCases = [];
         this.img = new Image();
         this.img.src = 'img/epingle.png';
         this.img.onload = function(){
@@ -110,8 +110,29 @@ function Labyrinthe(_mazes, _lvl) {
     };
 
     this.popAllumettes = function () {
-        if (triCases.length){
-            console.log("Je suis Undifined")
+        var triCases = [];
+        this.img = new Image();
+        this.img.src = 'img/allumettes.png';
+        this.img.onload = function(){
+            loading = true;
+        };
+
+        //Test si le tableau de case est vide
+        for(var k = 0; k < this.cases.length; k++){
+            if (this.cases[k].getType() == "_" || this.cases[k].getType() == " "){
+                triCases.push(this.cases[k]);
+            }
         }
+
+        this.nbAllumettes = _mazes["Niveau " + _lvl].nbMonstre;
+        for (var i = 0; i < this.nbAllumettes; i++){
+            var random = Math.floor(Math.random() * triCases.length);
+            var randomX = triCases[random].x * 32;
+            var randomY = triCases[random].y * 32;
+
+            ctx.drawImage(this.img, randomX, randomY);
+            }
+
+        console.log("triCases > ", triCases);
     }
 }

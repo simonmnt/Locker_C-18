@@ -3,9 +3,11 @@ function DeplacementHero(){
 	var myKey = {};
 	addEventListener('keydown', function(event){
 		myKey[event.keyCode] = true;
-	})
+		console.log('Keydown actif');
+	})	
 	addEventListener('keyup', function(event){
 		myKey[event.keyCode] = false;
+		console.log('keyup reactif');
 	})
 	function touch() {
 		if(myKey[38]&& hero.y > 0){

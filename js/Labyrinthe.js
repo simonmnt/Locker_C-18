@@ -76,4 +76,8 @@ function Labyrinthe(_mazes, _lvl) {
         console.log("nbMonstre > ", this.nbMonstre);
         console.log("Type > ", this.cases[0].getType());
     };
+	
+	this.popObjet = function () {
+        
+    }
 }

@@ -1,36 +1,42 @@
 function Hero(src, _x, _y) {
+Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.x = _x;
     this.y = _y;
-    this.speed = 10;
+    this.speed = 15;
 
     this.image = new Image();
     this.image.src = src;
+    this.image.parent = this;
     this.image.onload = function (){
-    	this.pret;
+    	this.pret = true;
     	console.log('hero chargé');
-    }
+	}
 }
-var hero = new Hero(src, _x, _y)
 
-// Position start hero
-var startPositionHeroX;
-var startPositionHeroY;
-hero.x = _x - hero.Image.width / 2;
-hero.y = _y - hero.Image.height / 2;
-
-function animationHero(){
-		if(_y == 1 && _x == 1){
-			_y = 0;
-			_x = 0;
-			console.log('Si arriver au bout, on reviens a début');
-		}else{
-			ctx.drawImage(hero.Image, _x*32, _y*32, 32, 32, hero.x, hero.y, 32, 32);
-			if(_x == 1){
-				_x = 0;
-				_y++;
-			console.log('Si au début, on augment Y de 1');
-		}
-				_x++;
-			console.log('puis on augment X de 1');
-		}
+var myKey = {};
+addEventListener('keydown', function(event){
+	myKey[event.keyCode] = true;
+	console.log('Keydown actif');
+})	
+addEventListener('keyup', function(event){
+	myKey[event.keyCode] = false;
+	console.log('keyup reactif');
+})
+function touch() {
+	if(myKey[38]&& hero.y > 0){
+		hero.y -= hero.speed;
+		console.log('fleche haut');
+	}
+	if(myKey[40]&&hero.y < 960-hero.image.width){
+		hero.y += hero.speed;
+		console.log('fleche bas');
+	}
+	if(myKey[37]&&hero.x > 0){
+		hero.x -= hero.speed;
+		console.log('fleche droite');
+	}
+	if(myKey[39]&&hero.x < 960-hero.image.width){
+		hero.x += hero.speed;
+		console.log('fleche gauche');
+	}
 }

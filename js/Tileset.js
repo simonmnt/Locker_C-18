@@ -3,24 +3,24 @@ function Tileset(_src)
 	
 	var listCoordX =
 	{
-		'W':x;
-		' ':x;
-		'L':x;
-		'I':x;
-		'S':x;
-		'_':x;
-		'M':x;
+		'W':0;
+		' ':32;
+		'L':64;
+		'I':96;
+		'S':128;
+		'_':160;
+		'M':192;
 	}
 	
 	var listCoordY =
 	{
-		'W':y;
-		' ':y;
-		'L':y;
-		'I':y;
-		'S':y;
-		'_':y;
-		'M':y;
+		'W':0;
+		' ':0;
+		'L':0;
+		'I':0;
+		'S':0;
+		'_':0;
+		'M':0;
 	}
 	
 	this.img = new Image();

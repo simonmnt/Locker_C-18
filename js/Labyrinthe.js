@@ -8,7 +8,7 @@ function Labyrinthe(_mazes, _lvl) {
 		{
 			for (var i = 0; i<matrice[k].length;i++)
 			{
-				var maCase = new Case(k,i,matrice[k][i]);
+				var maCase = new Case(i,k,matrice[k][i]);
 				iciLab.cases.push(maCase);
 			}
 		}

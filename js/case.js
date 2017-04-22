@@ -6,14 +6,14 @@
  * @class
  * @constructor
  */
-function Case(_x,_y,_type)
+function Case(_x, _y, _type)
 {
 	var iciCase = this;
 	
 	//position de la case dans la matrice
 	this.x = _x;
 	this.y = _y;
-	
+
 	//position de la frame dans le tileset
 	this.img = {'x' : tileset.coordX(_type), 'y' : tileset.coordY(_type)} ;
 	//type de la case
@@ -37,5 +37,5 @@ function Case(_x,_y,_type)
 		iciCase.type = _type;
 		iciCase.img.x = tileset.coordX(_type);
 		iciCase.img.y = tileset.coordY(_type);
-	}
+	};
 }

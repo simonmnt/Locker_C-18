@@ -10,7 +10,7 @@ function Tileset(_src)
 		's':128,
 		'_':160,
 		'm':192
-	}
+	};
 	
 	var listCoordY =
 	{
@@ -21,7 +21,7 @@ function Tileset(_src)
 		's':0,
 		'_':0,
 		'm':0
-	}
+	};
 	
 	this.img = new Image();
 	this.img.src = _src;
@@ -30,10 +30,10 @@ function Tileset(_src)
 	this.coordX = function(_type)
 	{
 		return listCoordX[_type];
-	}
+	};
 	
 	this.coordY = function(_type)
 	{
 		return listCoordY[_type];
-	}
+	};
 }

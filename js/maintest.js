@@ -9,6 +9,7 @@ var tileset = new Tileset('./img/tileset.png');
 console.log(3);
 var laby = new Labyrinthe(mazes, 5);
 console.log(4);
+
 if(loading){
     console.log("LOAD")
     laby.popMonster();

@@ -12,7 +12,7 @@ function DeplacementHero(){
 				hero.y -= hero.speed;
 				console.log('fleche haut');
 		}
-		if(myKey[40]&&hero.y < 960-hero.Image.width){
+		if(myKey[40]&&hero.y < 960-hero.image.width){
 				hero.y += hero.speed;
 				console.log('fleche bas');
 		}
@@ -20,7 +20,7 @@ function DeplacementHero(){
 				hero.x -= hero.speed;
 				console.log('fleche droite');
 		}
-		if(myKey[39]&&hero.x < 640-hero.Image.width){
+		if(myKey[39]&&hero.x < 640-hero.image.width){
 				hero.x += hero.speed;
 				console.log('fleche gauche');
 		}

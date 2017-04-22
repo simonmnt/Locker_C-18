@@ -40,6 +40,10 @@ function Case(_x, _y, _type)
 		iciCase.img.y = tileset.coordY(_type);
 	};
 
+    /**
+	 * Permet de récupérer le type de la case
+     * @returns type de case
+     */
 	this.getType = function () {
         return iciCase.type = _type
     }

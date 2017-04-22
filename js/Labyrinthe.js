@@ -31,6 +31,9 @@ function Labyrinthe(_mazes, _lvl) {
 		ctx.drawImage(iciLab.image,0,0,960,640);
 	};
 
+    /**
+     * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
+     */
 	this.popMonster = function () {
         var triCases = [];
 
@@ -40,14 +43,17 @@ function Labyrinthe(_mazes, _lvl) {
             loading = true;
         };
 
+        //Permet de créer un tableau de cases par rapport à un type
         for(var k = 0; k < this.cases.length; k++){
             if (this.cases[k].getType() == "_"){
                 triCases.push(this.cases[k]);
             }
         }
 
+        //Permet de récupérer le nombre à mettre dans le niveau
         this.nbMonstre = _mazes["Niveau " + _lvl].nbMonstre;
 
+        //Permet de faire apparaître de façon alétoire les monstres sur le labyrinthe
         for (var i = 0; i < this.nbMonstre; i++){
             var random = Math.floor(Math.random() * triCases.length);
             var randomX = triCases[random].x * 32;

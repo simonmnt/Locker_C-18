@@ -58,6 +58,8 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
             fillStyle: ctx.fillStyle
         };
 
+        if (typeof (this.text) === 'undefined') return lines;
+
         var brLines = this.text.split('\n');
 
         ctx.font = this.fontSize + "px sans-serif";
@@ -79,6 +81,8 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
                     curLine = "";
                 }
             });
+
+            curLine = "";
         });
 
         ctx.font = styleBackup.font;

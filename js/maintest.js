@@ -7,7 +7,7 @@ var ctx = canvas.getContext('2d');
 console.log(2);
 var tileset = new Tileset('./img/tileset.png');
 console.log(3);
-var laby = new Labyrinthe(mazes, 5);
+var laby = new Labyrinthe(mazes, 4);
 console.log(4);
 
 if(loading){
@@ -17,3 +17,4 @@ if(loading){
 
 }
 console.log(5);
+laby.genererCarte();

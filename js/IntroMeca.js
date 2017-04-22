@@ -4,7 +4,12 @@
 (function IntroMeca() {
     "use strict";
     var canvas = document.getElementById('canvas');
-    var tempCanvas = document.getElementById('temp-canvas');
+    var tempCanvas = document.createElement('canvas');
+    tempCanvas.width = 4000;
+    tempCanvas.height = 4000;
+    tempCanvas.style.display = 'none';
+    tempCanvas.id = 'temp-canvas';
+    document.body.appendChild(tempCanvas);
     window.ctx = tempCanvas.getContext('2d');
 
     var paragraphs = [

@@ -1,6 +1,7 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
     this.cases = [];
+	this.image = new Image();
 	if(true)
 	{
 		var matrice = _mazes["Niveau "+_lvl].matrice;
@@ -14,13 +15,21 @@ function Labyrinthe(_mazes, _lvl) {
 		}
 	};
 	
-	this.afficheCarte = function()
+	this.genererCarte = function()
 	{
 		for(var k=0; k<this.cases.length;k++)
 		{
-			console.log('test');
 			iciLab.cases[k].draw()
 		}
+		var canvasImg = document.getElementById('canvas');
+		var dataURL = canvasImg.toDataURL("image/png");
+		iciLab.image.src = dataURL;
+		return image;	
+	}
+	
+	this.afficherCarte = function()
+	{
+		ctx.drawImage(iciLab.image,0,0,960,640);
 	}
 	
 }

@@ -20,4 +20,4 @@ function AffichageText() {
 	}
 }
 
-var interval = SetInterval(Affichage(), 30);
+//var interval = SetInterval(Affichage(), 30);

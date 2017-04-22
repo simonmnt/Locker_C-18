@@ -16,17 +16,15 @@ function Labyrinthe(_mazes, _lvl) {
 		}
 	}
 	
-	this.genererCarte = function()
-	{
-		for(var k=0; k < this.cases.length; k++)
-		{
-			iciLab.cases[k].draw()
-		}
-		var canvasImg = document.getElementById('canvas');
-		var dataURL = canvasImg.toDataURL("image/png");
-		iciLab.image.src = dataURL;
-		return image;	
-	}
+	this.genererCarte = function() {
+        for (var k = 0; k < this.cases.length; k++) {
+            iciLab.cases[k].draw()
+        }
+        var canvasImg = document.getElementById('canvas');
+        var dataURL = canvasImg.toDataURL("image/png");
+        iciLab.image.src = dataURL;
+        return image;
+    };
 	
 	this.afficherCarte = function()
 	{

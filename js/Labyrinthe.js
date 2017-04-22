@@ -32,6 +32,16 @@ function Labyrinthe(_mazes, _lvl) {
 	};
 
     /**
+     * this.afficheCarte = function()
+     {
+         for(var k=0; k < this.cases.length; k++)
+         {
+             console.log('test');
+             iciLab.cases[k].draw()
+     };
+     */
+
+    /**
      * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
      */
 	this.popMonster = function () {

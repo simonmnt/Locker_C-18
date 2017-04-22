@@ -11,14 +11,14 @@ function Case(_x,_y,_type)
 	this.draw = function()
 	{
 		console.log("tileset.img "+this.img.x+" "+this.img.y+" "+32+32+this.x*32+this.y*32+32+32);
-		ctx.drawImage(tileset.img,this.img.x, this.img.y, 32,32,this.x*8, this.y*8,8,8);
-	}
+		ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32,this.x*8, this.y*8, 8, 8);
+	};
 	
 	this.setType = function(_type)
 	{
 		iciCase.type = _type;
-		iciCase.img.x = tileset.coordX(_type);;
-		iciCase.img.y = tileset.coordY(_type);;
+		iciCase.img.x = tileset.coordX(_type);
+		iciCase.img.y = tileset.coordY(_type);
 	}
 }
 

@@ -3,29 +3,29 @@ function Tileset(_src)
 	
 	var listCoordX =
 	{
-		'W':0;
-		' ':32;
-		'L':64;
-		'I':96;
-		'S':128;
-		'_':160;
-		'M':192;
+		'w':0,
+		' ':32,
+		'l':64,
+		'i':96,
+		's':128,
+		'_':160,
+		'm':192
 	}
 	
 	var listCoordY =
 	{
-		'W':0;
-		' ':0;
-		'L':0;
-		'I':0;
-		'S':0;
-		'_':0;
-		'M':0;
+		'w':0,
+		' ':0,
+		'l':0,
+		'i':0,
+		's':0,
+		'_':0,
+		'm':0
 	}
 	
 	this.img = new Image();
 	this.img.src = _src;
-	this.img.onload = function(){loading++;};
+	this.img.onload = function(){loading=true;};
 	
 	this.coordX = function(_type)
 	{

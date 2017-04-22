@@ -1,7 +1,7 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
     this.cases = [];
-	if(_lvl<Object.keys(_mazes).length)
+	if(true)
 	{
 		var matrice = _mazes["Niveau "+_lvl].matrice;
 		for (var k =0; k<matrice.length;k++)
@@ -14,11 +14,12 @@ function Labyrinthe(_mazes, _lvl) {
 		}
 	};
 	
-	this.afficheCarte()
+	this.afficheCarte = function()
 	{
 		for(var k=0; k<this.cases.length;k++)
 		{
-			cases[k].draw()
+			console.log('test');
+			iciLab.cases[k].draw()
 		}
 	}
 	

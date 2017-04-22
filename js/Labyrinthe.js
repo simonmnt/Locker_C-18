@@ -31,6 +31,39 @@ function Labyrinthe(_mazes, _lvl) {
 		ctx.drawImage(iciLab.image,0,0,960,640);
 	};
 
+	this.getStartPosX()
+	{
+		var k=0;
+		while(k<cases.length)
+		{
+			if(cases[k].type == 'i')
+			{
+				return cases[k].x;
+			}
+			else
+			{
+				k++;
+			}
+		}
+		return false;
+	}
+	
+	this.getStartPosY()
+	{
+		var k=0;
+		while(k<cases.length)
+		{
+			if(cases[k].type == 'i')
+			{
+				return cases[k].y;
+			}
+			else
+			{
+				k++;
+			}
+		}
+		return false;
+	}
     /**
      * this.afficheCarte = function()
      {

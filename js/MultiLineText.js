@@ -40,13 +40,19 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
 
         var li = 0;
         this.lines().map(function (line) {
-            var y = instance.y + (li * (instance.fontSize * instance.lineHeight)) + instance.fontSize;
+            var fi = Math.round(instance.fontSize);
+            var y = instance.y + (li * (fi * instance.lineHeight)) + instance.fontSize;
             ctx.fillText(line, instance.x, y);
             li++;
         });
 
 
         for (var key in styleBackup) ctx[key] = styleBackup[key];
+    };
+
+    this.totalHeight = function () {
+        var fi = Math.round(this.fontSize);
+        return this.lines().length * fi * this.lineHeight;
     };
 
     this.lines = function () {
@@ -57,6 +63,8 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
             font : ctx.font,
             fillStyle: ctx.fillStyle
         };
+
+        if (typeof (this.text) === 'undefined') return lines;
 
         var brLines = this.text.split('\n');
 
@@ -79,6 +87,9 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
                     curLine = "";
                 }
             });
+
+            lines.push(curLine.substring(1, curLine.length));
+            curLine = "";
         });
 
         ctx.font = styleBackup.font;

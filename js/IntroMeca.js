@@ -152,7 +152,7 @@
         messageBul.state = "showing";
 
         setTimeout(function () {
-            initLaby(level);
+            newLevel = true;
         }, messageBul.showTime + 1000);
     }
 
@@ -193,8 +193,6 @@
             }
             drawGame();
         }
-
-        //setTimeout(fail, 3333);
 
         window.requestAnimationFrame(refresh);
     }

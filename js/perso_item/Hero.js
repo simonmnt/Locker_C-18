@@ -3,6 +3,8 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.x = _x;
     this.y = _y;
     this.speed = 15;
+    // booléen servant à utiliser une allumette
+    this.allumette = false;
 
     this.image = new Image();
     this.image.src = src;

@@ -6,6 +6,18 @@ var t = 0;
 
 var hero = new Hero("img/fabworm.png", 50, 80);
 
+var mazemask = new MazeMask();
+
+// création et initialisation de la variable date
+var date = new Date();
+
+// création de la variable qui va définir la taille maxi lorsque l'on touche une allumette
+var tailleAllumette = 120;
+var arretdutemps = date.getTime();
+
+// Offset des objets dans le tileset
+var OBJECTS_TILESET_OFFSET = 7 * 32;
+
 function background () {
     ctx.fillStyle = "#0b680f";
     ctx.fillRect(0, 0, canvas.width, canvas.height);

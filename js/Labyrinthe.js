@@ -103,71 +103,25 @@ function Labyrinthe(_mazes, _lvl) {
      * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
      */
 	this.popMonster = function () {
-        triCases = [];
+        triCases = {};
 
         //Permet de créer un tableau de cases par rapport à un type
         for(var k = 0; k < this.cases.length; k++){
             if (this.cases[k].getType() == "_"){
-                triCases.push(this.cases[k]);
+                triCases[k] = this.cases[k]
             }
         }
 
-        /*for (var i = 0; i < this.nbMonstre; i++){
-            var random = Math.floor(Math.random() * triCases.length);
-            var randomX = triCases[random].x * 32;
-            var randomY = triCases[random].y * 32;
+        //Créer un tableau des clés de l'objet triCases
+        var clefs = Object.keys(triCases);
 
-            this.cases.setType('m', randomX, randomY);
-            //ctx.drawImage(this.img, randomX, randomY);
-        }*/
-
-        console.log(iciLab.cases[1].getType());
-        console.log(iciLab.cases[1].type);
-        console.log(iciLab.cases[1]);
-
-        var typeM = 'm';
-
-        //iciLab.cases[1].setType('m');
-        iciLab.cases[1].type = typeM;
-
-        console.log(iciLab.cases[1].getType());
-        console.log(iciLab.cases[1].type);
-        console.log(iciLab.cases[1]);
-
-        console.log("triCases > ", triCases);
-        for(var k = 0; k < this.cases.length; k++){
-            if (this.cases[k].getType() == "m"){
-                console.log('Monster');
-            }
-        }
-        /*this.img = new Image();
-        this.img.src = 'img/epingle.png';
-        this.img.onload = function(){
-            loading = true;
-        };
-
-        //Permet de créer un tableau de cases par rapport à un type
-        for(var k = 0; k < this.cases.length; k++){
-            if (this.cases[k].getType() == "_"){
-                triCases.push(this.cases[k]);
-            }
-        }
-
-        //Permet de récupérer le nombre à mettre dans le niveau
+        //Récupère le nombre de monstre
         this.nbMonstre = _mazes["Niveau " + _lvl].nbMonstre;
 
-        //Permet de faire apparaître de façon alétoire les monstres sur le labyrinthe
         for (var i = 0; i < this.nbMonstre; i++){
-            var random = Math.floor(Math.random() * triCases.length);
-            var randomX = triCases[random].x * 32;
-            var randomY = triCases[random].y * 32;
-
-            ctx.drawImage(this.img, randomX, randomY);
+            var randKey = Math.floor(Math.random() * clefs.length);
+            this.cases[clefs[randKey]].setType('m');
         }
-        
-        console.log("triCases > ", triCases);
-        console.log("nbMonstre > ", this.nbMonstre);
-        console.log("Type > ", this.cases[0].getType());*/
     };
 
     this.popAllumettes = function () {

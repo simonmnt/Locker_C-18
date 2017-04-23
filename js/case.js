@@ -25,7 +25,17 @@ function Case(_x, _y, _type)
 	this.draw = function()
 	{
 		//console.log("tileset.img "+this.img.x+" "+this.img.y+" "+32+32+this.x*32+this.y*32+32+32);
-		ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
+		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
+		switch (this.type) {
+			case 'w':
+				ctx.fillStyle = BKG_WALL_COLOR_LVL1;
+				break;
+
+			default:
+				ctx.fillStyle = BKG_MAIN_COLOR_LVL1;
+		}
+
+        ctx.fillRect(this.x * 32, this.y * 32, 32, 32);
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 8, 8, this.x*8, this.y*8, 8, 8);
 	};
 	

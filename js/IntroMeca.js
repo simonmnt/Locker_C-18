@@ -1,17 +1,28 @@
 /**
  * Created by gaelph on 22/04/2017.
  */
+
+/**
+ * Module initial, lance l'intro, puis le jeu
+ * les méthodes drawIntro et drawGame sont appelées au rafraichissement
+ */
 (function IntroMeca() {
     "use strict";
+    // Le canevas principal
     var canvas = document.getElementById('canvas');
+    // Un canevas temporaire
+    // TODO: le supprimer après l'intro
     var tempCanvas = document.createElement('canvas');
     tempCanvas.width = 4000;
     tempCanvas.height = 4000;
     tempCanvas.style.display = 'none';
     tempCanvas.id = 'temp-canvas';
     document.body.appendChild(tempCanvas);
+
     window.ctx = tempCanvas.getContext('2d');
 
+    // Le texte d'intro
+    // TODO: Déplacer dans un fichier propre
     var paragraphs = [
         "Après un long et périlleux voyage. Gasnam et les habitants de Tafsum, passèrent les frontières de " +
         "la planète Terre.\n \n" +
@@ -24,21 +35,31 @@
         "Seul un sursaut de lumière vient de temps en temps éclaircir sa prison…"
 ];
 
+    // L'index du texte à afficher dans paragraphs
     var text = 0;
 
+    // Les éléments déssinables pour l'intro
     var drawables = {
         "background" : new Drawable("img/galaxy.jpg", canvas.width, canvas.height),
         "introText" : new MultiLineText(1200, tempCanvas.width / 2, 24, "", 48, 1.25, "rgba(255, 255, 255, 0)", "center")
     };
 
+    // Le temps d'affichage de chaque paragraphe
     var delay = 12000;
+    // Timestamp du dernier rafraîchissement
     var lastupdate = -1;
 
+    // l'opcité du texte
     var opacity = 0;
+    // Facteur d'agrandissement du texte à chaque rafraîchissement
     var factor = 0.2;
 
+    // Booléen indiquant si nous sommes dans l'intro ou non
     var isIntro = true;
 
+    /**
+     * Méthode appelée au rafraîchissement pour l'intro
+     */
     function drawIntro() {
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
         ctx.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
@@ -87,6 +108,9 @@
         factor *= 1.002;
     }
 
+    /**
+     * Méthode appelée pour rafraîchir en phase de jeu
+     */
     function drawGame () {
         window.ctx = canvas.getContext('2d');
 
@@ -94,6 +118,9 @@
 
     }
 
+    /**
+     * Méthode appelée pour rafraîchire l'affichage
+     */
     function refresh() {
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 

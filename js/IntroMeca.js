@@ -174,9 +174,11 @@
     function fail() {
         messageBul.text = "Vous êtes mort.";
         messageBul.state = "showing";
+        window.pause = true;
 
         setTimeout(function () {
             newLevel = true;
+            window.pause = false;
         }, messageBul.showTime + 1000);
     }
 
@@ -272,7 +274,7 @@
     }
 
     document.addEventListener('success', success);
-    document.addEventListener('monster', monsterCollision)
+    document.addEventListener('monster', fail);
 
     window.requestAnimationFrame(refresh);
 })();

@@ -38,6 +38,15 @@
         "Seul un sursaut de lumière vient de temps en temps éclaircir sa prison…"
 ];
 
+    var bulles = [
+        "Message du premier niveau",
+        "Message du deuxième niveau",
+        "Message du troisième niveau",
+        "Message du quatrième niveau",
+        "Message du cinquième niveau",
+        "Message du sixième niveau"
+    ];
+
     // L'index du texte à afficher dans paragraphs
     var text = 0;
 
@@ -65,6 +74,7 @@
     window.hero = new Hero("img/fabworm.png", 50, 80);
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');
+    window.messageBul = new MessageBulle("", 0, 0);
 
     function initLaby (level) {
         console.log("init level " + level);
@@ -127,6 +137,16 @@
         factor *= 1.002;
     }
 
+    function success () {
+        messageBul.text = bulles[level - 1];
+        messageBul.state = "showing";
+
+        setTimeout(function () {
+            newLevel = true;
+            level++;
+        }, messageBul.showTime + 1000);
+    }
+
     /**
      * Méthode appelée pour rafraîchir en phase de jeu
      */
@@ -142,8 +162,9 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
-        }
 
+            messageBul.draw();
+        }
     }
 
     /**

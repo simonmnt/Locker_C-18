@@ -28,11 +28,11 @@ function Case(_x, _y, _type)
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
 		switch (this.type) {
 			case 'w':
-				ctx.fillStyle = BKG_WALL_COLOR_LVL1;
+				ctx.fillStyle = BKG_WALL_COLOR[level];
 				break;
 
 			default:
-				ctx.fillStyle = BKG_MAIN_COLOR_LVL1;
+            ctx.fillStyle = BKG_MAIN_COLOR[level];
 		}
 
         ctx.fillRect(this.x * 32, this.y * 32, 32, 32);

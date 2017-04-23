@@ -28,17 +28,23 @@ function Case(_x, _y, _type)
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
 		switch (this.type) {
             case 'm':
-
+                ctx.fillStyle = BKG_MAIN_COLOR[level - 1];
+                ctx.fillRect(this.x * 32, this.y * 32, 32, 32);
+                this.img = new Image();
+                this.img.src = "img/epingle.png";
+                ctx.drawImage(this.img, 0, 0, 32, 32, this.x* 32, this.y*32, 32, 32);
                 break;
 			case 'w':
 				ctx.fillStyle = BKG_WALL_COLOR[level - 1];
+                ctx.fillRect(this.x * 32, this.y * 32, 32, 32);
 				break;
 
 			default:
-            ctx.fillStyle = BKG_MAIN_COLOR[level - 1];
+                ctx.fillStyle = BKG_MAIN_COLOR[level - 1];
+                ctx.fillRect(this.x * 32, this.y * 32, 32, 32);
 		}
 
-        ctx.fillRect(this.x * 32, this.y * 32, 32, 32);
+
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 8, 8, this.x*8, this.y*8, 8, 8);
 	};
 	

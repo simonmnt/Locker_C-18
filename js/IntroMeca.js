@@ -172,7 +172,7 @@
             //AffichageText();
             hero.draw(ctx);
 // appel à la fonction permettant d'agrandir la zone visible
-            mazemask.drawAllumette();
+            //mazemask.drawAllumette();
 
             messageBul.draw();
         }
@@ -194,7 +194,7 @@
             drawGame();
         }
 
-        setTimeout(fail, 3333);
+        //setTimeout(fail, 3333);
 
         window.requestAnimationFrame(refresh);
     }

@@ -244,7 +244,7 @@
 
             textChrono.x = timeX;
             textChrono.y = timeY;
-            //mazemask.drawAllumette();
+            mazemask.drawAllumette();
             textChrono.text = "Temps : " + t + "s";
             textChrono.draw(ctx);
         }

@@ -164,7 +164,6 @@
             hero.draw(ctx);
 // appel à la fonction permettant d'agrandir la zone visible
             mazemask.drawAllumette();
-        }
 
             messageBul.draw();
         }

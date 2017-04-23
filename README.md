@@ -1,6 +1,6 @@
 # TeamCORONNA
 
-## Credits
+## CREDITS
 
 - Mickaël BROISAT
 - Alexandre DONAZZAN

@@ -147,6 +147,15 @@
         }, messageBul.showTime + 1000);
     }
 
+    function fail() {
+        messageBul.text = "Vous êtes mort.";
+        messageBul.state = "showing";
+
+        setTimeout(function () {
+            initLaby(level);
+        }, messageBul.showTime + 1000);
+    }
+
     /**
      * Méthode appelée pour rafraîchir en phase de jeu
      */
@@ -185,6 +194,7 @@
             drawGame();
         }
 
+        setTimeout(fail, 3333);
 
         window.requestAnimationFrame(refresh);
     }

@@ -10,6 +10,9 @@
     "use strict";
     // Le canevas principal
     var canvas = document.getElementById('canvas');
+    var wrapper = document.getElementById('wrapper');
+    canvas.width = wrapper.clientWidth;
+    canvas.height = wrapper.clientHeight;
     // Un canevas temporaire
     // TODO: le supprimer après l'intro
     var tempCanvas = document.createElement('canvas');
@@ -56,6 +59,22 @@
 
     // Booléen indiquant si nous sommes dans l'intro ou non
     var isIntro = true;
+    var newLevel = true;
+
+    window.level = 5;
+    window.hero = new Hero("img/fabworm.png", 50, 80);
+    window.laby = null;
+    window.tileset = new Tileset('./img/tileset.png');
+
+    function initLaby (level) {
+        console.log("init level " + level);
+        window.laby = new Labyrinthe(mazes, level);
+        laby.genererCarte();
+        laby.popMonster();
+
+        hero.x = laby.getStartPosX() * 32;
+        hero.y = laby.getStartPosY() * 32;
+    }
 
     /**
      * Méthode appelée au rafraîchissement pour l'intro
@@ -114,7 +133,16 @@
     function drawGame () {
         window.ctx = canvas.getContext('2d');
 
-        ctx.fillText("JEU", 0, 48);
+        if (hero.image.pret) {
+            touch();
+            updateCanvasPosition();
+
+
+            //laby.popMonster();
+            if (typeof(laby) !== 'undefined') laby.draw();
+            //AffichageText();
+            hero.draw(ctx);
+        }
 
     }
 
@@ -126,8 +154,14 @@
 
         if (isIntro)
             drawIntro();
-        else
+        else {
+            if (newLevel) {
+                initLaby(level);
+                newLevel = false;
+            }
             drawGame();
+        }
+
 
         window.requestAnimationFrame(refresh);
     }

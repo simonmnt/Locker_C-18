@@ -5,6 +5,8 @@ function Labyrinthe(_mazes, _lvl) {
     this.pixelWidth = 0;
     this.pixelHeight = 0;
 
+    this.caseEntree = null;
+
 	this.image = new Image();
 	if(true)
 	{
@@ -18,6 +20,9 @@ function Labyrinthe(_mazes, _lvl) {
 			{
 				var maCase = new Case(i, k, matrice[k][i]);
 				iciLab.cases.push(maCase);
+				if (maCase.type === 'i') {
+				    this.caseEntree = maCase;
+                }
 			}
 		}
 	}

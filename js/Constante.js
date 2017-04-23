@@ -68,7 +68,7 @@ function begin () {
         hero.draw(ctx);
     }
 }
-var intervalConstante = setInterval(begin, 33);
+// var intervalConstante = setInterval(begin, 33);
 
 
 

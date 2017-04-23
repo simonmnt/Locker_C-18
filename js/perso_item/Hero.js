@@ -65,27 +65,6 @@ function heroi(){
 function heroj(){
     return ((hero.y) - (hero.y) % 32) / 32;
 }
-// Tester la collision
-function coordCanvasToMat(){
-
-	var cols = hero.x - (hero.x % 32);
-	var rows = hero.y - (hero.y % 32);
-
-    var canvToMatRowCOl = { cols , rows };
-
-    return CanvasToMatRowCOl;
-}
-
-
-function coordCanvasToMat(cols, rows){
-
-	var x = 32*cols;
-	var y = 32*rows;
-
-    var matTocanvRowCOl = {'col' : x,'row': y};
-
-    return matTocanvRowCOl;
-}
 
 function testCollision(x, y){
 	console.log(x +" " + y);

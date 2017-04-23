@@ -22,7 +22,7 @@ var BKG_PASS_COLOR_LVL2 = "#026fa6";
 // Couleurs pour le niveau 3
 var BKG_MAIN_COLOR_LVL3 = "#b843cc";
 var BKG_WALL_COLOR_LVL3 = "#851099";
-var BKG_PASS_COLOR_LVL3 = "#a42fb8";
+var BKG_PASS_COLOR_LVL3 = "#9a12b3";
 
 // Couleurs pour le niveau 4
 var BKG_MAIN_COLOR_LVL4 = "#ff6e9f";
@@ -35,6 +35,18 @@ var BKG_WALL_COLOR_LVL5 = "#f04813";
 var BKG_PASS_COLOR_LVL5 = "#ff7c52";
 
 // Couleurs pour le niveau 1
-var BKG_MAIN_COLOR_LVL1 = "#ffca74";
-var BKG_WALL_COLOR_LVL1 = "#e59411";
-var BKG_PASS_COLOR_LVL1 = "#ffb53b";
+var BKG_MAIN_COLOR_LVL6 = "#ffca74";
+var BKG_WALL_COLOR_LVL6 = "#e59411";
+var BKG_PASS_COLOR_LVL6 = "#ffb53b";
+
+var BKG_MAIN_COLOR = [
+    "#0b680f", "#0180bf", "#b843cc", "#ff6e9f", "#ffa689", "#ffca74"
+];
+
+var BKG_WALL_COLOR = [
+    "#07420a", "#015782", "#851099", "#e81d62", "#f04813", "#e59411"
+];
+
+var BKG_PASS_COLOR = [
+    "#094f0c", "#026fa6", "#9a12b3", "#fc3176", "#ff7c52", "#ffb53b"
+];

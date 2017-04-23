@@ -31,11 +31,11 @@ function Case(_x, _y, _type)
                 ctx.fillStyle = RED_TEST;
                 break;
 			case 'w':
-				ctx.fillStyle = BKG_WALL_COLOR_LVL1;
+				ctx.fillStyle = BKG_WALL_COLOR[level - 1];
 				break;
 
 			default:
-				ctx.fillStyle = BKG_MAIN_COLOR_LVL1;
+            ctx.fillStyle = BKG_MAIN_COLOR[level - 1];
 		}
 
         ctx.fillRect(this.x * 32, this.y * 32, 32, 32);

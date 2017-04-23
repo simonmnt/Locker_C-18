@@ -10,6 +10,8 @@
 function MazeMask() {
     "use strict";
 
+    // Variable pour pouvoir avoir un agrandissement progressif de la zone
+    var zone = 0;
     /**
      * Coordonnée horizontale
      * @type {number}
@@ -55,16 +57,42 @@ function MazeMask() {
     };
 // Permet d'agrandir la vision de la carte
     this.drawAllumette = function () {
+        date = new Date();
+        console.log(hero.allumette);
+        console.log(arretdutemps);
+        console.log(date.getTime());
         ctx.globalCompositeOperation = 'destination-in';
+        // Si la zone n'est pas assez grande et si l'allumette est craqué depuis peu de temps on augmente la zone visible
+        if(hero.allumette && zone <= tailleAllumette) {
+            zone = zone + 2;
+        }
+        // Si la zone visible et à fond et l'allumette consumé, on met l'allumette a false
+        if(zone >= tailleAllumette && arretdutemps < date.getTime()-5000){
+            hero.allumette = false;
+            arretdutemps = date.getTime();
+        }
+        // Si l'allumette est consummé et si la zone visible n'est pas minimal, on réduit la zone
+        if(!hero.allumette && zone >= 0){
+            zone = zone - 2;
+        }
+        // Si on touche une allumette, on la craque pour voir plus loin
+        if(zone <= 1 && arretdutemps < date.getTime() - 5000) {
+            hero.allumette = true;
+            arretdutemps = date.getTime();
+        }
         if(this.mask.loaded) {
             ctx.drawImage(this.mask,
-            0,0,
+                0, 0,
                 this.mask.naturalWidth, this.mask.naturalHeight,
-                this.x, this.y,
+                // On centre la zone visible sur le hero
+                hero.x - 16 - zone/2, hero.y - 16 - zone/2,
                 // C'est ici que l'on définit la taille de la vue du héro
-                this.mask.naturalWidth + 50, this.mask.naturalHeight + 50
+                this.mask.naturalWidth + zone, this.mask.naturalHeight + zone
             );
         }
+
+        // Rétablit le mode de composition par défaut
+        ctx.globalCompositeOperation = 'source-over';
 
     }
 }

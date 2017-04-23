@@ -85,9 +85,9 @@ function MazeMask() {
                 0, 0,
                 this.mask.naturalWidth, this.mask.naturalHeight,
                 // On centre la zone visible sur le hero
-                hero.x - 32 - zone/2, hero.y - 32 - zone/2,
+                hero.x - 54 - zone/2, hero.y - 54 - zone/2,
                 // C'est ici que l'on définit la taille de la vue du héro
-                (this.mask.naturalWidth*2 + zone), this.mask.naturalHeight*2 + zone
+                this.mask.naturalWidth*2 + zone + 12, this.mask.naturalHeight*2 + zone + 12
             );
         }
 

@@ -81,6 +81,7 @@
         window.laby = new Labyrinthe(mazes, level);
         laby.genererCarte();
         laby.popMonster();
+        laby.popAllumettes();
 
         hero.x = laby.getStartPosX() * 32;
         hero.y = laby.getStartPosY() * 32;

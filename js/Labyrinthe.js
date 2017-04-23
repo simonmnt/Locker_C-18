@@ -1,7 +1,7 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
     this.cases = [];
-
+    var triCases;
     this.pixelWidth = 0;
     this.pixelHeight = 0;
 
@@ -55,39 +55,31 @@ function Labyrinthe(_mazes, _lvl) {
         });
     };
 
-	this.getStartPosX = function ()
-	{
-		var k = 0;
-		while(k < this.cases.length)
-		{
-			if(this.cases[k].type == 'i')
-			{
-				return this.cases[k].x;
-			}
-			else
-			{
-				k++;
-			}
-		}
-		return false;
-	};
-	
-	this.getStartPosY = function ()
-	{
-		var k = 0;
-		while(k < this.cases.length)
-		{
-			if(this.cases[k].type == 'i')
-			{
-				return this.cases[k].y;
-			}
-			else
-			{
-				k++;
-			}
-		}
-		return false;
-	};
+    this.getStartPosX = function () {
+        var k = 0;
+        while (k < this.cases.length) {
+            if (this.cases[k].type == 'i') {
+                return this.cases[k].x;
+            }
+            else {
+                k++;
+            }
+        }
+        return false;
+    };
+
+    this.getStartPosY = function () {
+        var k = 0;
+        while (k < this.cases.length) {
+            if (this.cases[k].type == 'i') {
+                return this.cases[k].y;
+            }
+            else {
+                k++;
+            }
+        }
+        return false;
+    };
     /**
      * this.afficheCarte = function()
      {
@@ -101,64 +93,49 @@ function Labyrinthe(_mazes, _lvl) {
     /**
      * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
      */
-	this.popMonster = function () {
-        var triCases = [];
-        this.img = new Image();
-        this.img.src = 'img/epingle.png';
-        this.img.onload = function(){
-            loading = true;
-        };
-
-        //Permet de créer un tableau de cases par rapport à un type
-        for(var k = 0; k < this.cases.length; k++){
-            if (this.cases[k].getType() == "_"){
-                triCases.push(this.cases[k]);
+    this.popMonster = function () {
+        triCases = {};
+        for (var k = 0; k < this.cases.length; k++) {
+            if (this.cases[k].getType() == "_") {
+                triCases[k] = this.cases[k]
             }
         }
+
+            //Créer un tableau des clés de l'objet triCases
+            var clefs = Object.keys(triCases);
+
+            //Récupère le nombre de monstre
 
         //Permet de récupérer le nombre à mettre dans le niveau
         this.nbMonstre = _mazes["Niveau " + _lvl].nbMonstre;
 
-        //Permet de faire apparaître de façon alétoire les monstres sur le labyrinthe
-        for (var i = 0; i < this.nbMonstre; i++){
-            var random = Math.floor(Math.random() * triCases.length);
-            var randomX = triCases[random].x * 32;
-            var randomY = triCases[random].y * 32;
-
-            ctx.drawImage(this.img, randomX, randomY);
+        for (var i = 0; i < this.nbMonstre; i++) {
+            var randKey = Math.floor(Math.random() * clefs.length);
+            this.cases[clefs[randKey]].setType('m');
         }
-        
-        console.log("triCases > ", triCases);
-        console.log("nbMonstre > ", this.nbMonstre);
-        console.log("Type > ", this.cases[0].getType());
     };
 
     this.popAllumettes = function () {
-        var triCases = [];
-        this.img = new Image();
-        this.img.src = 'img/allumettes.png';
-        this.img.onload = function(){
-            loading = true;
-        };
+        triCases = {};
 
-        //Test si le tableau de case est vide
-        for(var k = 0; k < this.cases.length; k++){
-            if (this.cases[k].getType() == "_" || this.cases[k].getType() == " "){
-                triCases.push(this.cases[k]);
+        //Permet de créer un tableau de cases par rapport à un type
+        for (var k = 0; k < this.cases.length; k++) {
+            if (this.cases[k].getType() == "_" || this.cases[k].getType() == " ") {
+                triCases[k] = this.cases[k]
             }
         }
 
-        this.nbAllumettes = _mazes["Niveau " + _lvl].nbMonstre;
-        for (var i = 0; i < this.nbAllumettes; i++){
-            var random = Math.floor(Math.random() * triCases.length);
-            var randomX = triCases[random].x * 32;
-            var randomY = triCases[random].y * 32;
+        //Créer un tableau des clés de l'objet triCases
+        var clefs = Object.keys(triCases);
 
-            ctx.drawImage(this.img, randomX, randomY);
-            }
+        //Récupère le nombre de monstre
+        this.nbAllumettes = _mazes["Niveau " + _lvl].nbAllumettes;
 
-        console.log("triCases > ", triCases);
-    }
+        for (var i = 0; i < this.nbAllumettes; i++) {
+            var randKey = Math.floor(Math.random() * clefs.length);
+            this.cases[clefs[randKey]].setType('l');
+        }
+    };
 
     this.getCase = function(x, y)
     {

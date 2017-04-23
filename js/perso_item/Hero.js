@@ -48,7 +48,7 @@ function touch() {
 }
 
 function simonMove(){
-if((Date.now() - hero.lastMove) > 300){
+if((Date.now() - hero.lastMove) > 200){
 return true;
 }else{
 	return false;

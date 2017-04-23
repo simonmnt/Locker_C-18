@@ -61,7 +61,7 @@
     var isIntro = false;
     var newLevel = true;
 
-    window.level = 5;
+    window.level = 6;
     window.hero = new Hero("img/fabworm.png", 50, 80);
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');

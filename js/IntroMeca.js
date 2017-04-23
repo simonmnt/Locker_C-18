@@ -161,7 +161,7 @@
             window.pause = false;
             newLevel = true;
             level++;
-            if (level > 7) {
+            if (level >= 7) {
                 theEnd();
             }
         }, messageBul.showTime + 1000);

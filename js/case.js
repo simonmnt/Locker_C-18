@@ -28,7 +28,7 @@ function Case(_x, _y, _type)
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
 		switch (this.type) {
             case 'm':
-                ctx.fillStyle = RED_TEST;
+
                 break;
 			case 'w':
 				ctx.fillStyle = BKG_WALL_COLOR[level - 1];

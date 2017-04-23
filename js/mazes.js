@@ -53,8 +53,8 @@ var mazes = {
 
     "Niveau 3": {
         "nbNiveau": 3 ,
-        "nbMonstre": 5,
-        "nbAllumettes": 4,
+        "nbMonstre": 15,
+        "nbAllumettes": 9,
         "matrice": [
             ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],
             ["i"," "," "," "," "," "," ","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","_","w","w","w","w","w","w","w","w","_","w","w","w","w"],

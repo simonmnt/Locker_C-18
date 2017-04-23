@@ -58,7 +58,7 @@
     var factor = 0.2;
 
     // Booléen indiquant si nous sommes dans l'intro ou non
-    var isIntro = true;
+    var isIntro = false;
     var newLevel = true;
 
     window.level = 5;
@@ -142,6 +142,8 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
+// appel à la fonction permettant d'agrandir la zone visible
+            mazemask.drawAllumette();
         }
 
     }

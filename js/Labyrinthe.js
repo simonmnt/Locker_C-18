@@ -2,10 +2,16 @@ function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
     this.cases = [];
 
+    this.pixelWidth = 0;
+    this.pixelHeight = 0;
+
 	this.image = new Image();
 	if(true)
 	{
 		var matrice = _mazes["Niveau " + _lvl].matrice;
+
+		this.pixelHeight = matrice.length * 32;
+		this.pixelWidth = matrice[0].length * 32;
 		for (var k =0; k<matrice.length;k++)
 		{
 			for (var i = 0; i < matrice[k].length; i++)
@@ -22,8 +28,14 @@ function Labyrinthe(_mazes, _lvl) {
         }
         var canvasImg = document.getElementById('canvas');
         var dataURL = canvasImg.toDataURL("image/png");
+
+        canvas.width = iciLab.pixelWidth;
+        canvas.height = iciLab.pixelHeight;
+        canvas.style.marginTop = 0;
+        canvas.style.marginLeft = 0;
+
         iciLab.image.src = dataURL;
-        return image;
+        // return image;
     };
 	
 	this.afficherCarte = function()
@@ -31,14 +43,21 @@ function Labyrinthe(_mazes, _lvl) {
 		ctx.drawImage(iciLab.image,0,0,960,640);
 	};
 
+	this.draw = function () {
+	    "use strict";
+	    this.cases.map(function (uneCase) {
+	        uneCase.draw();
+        });
+    };
+
 	this.getStartPosX = function ()
 	{
 		var k = 0;
-		while(k < cases.length)
+		while(k < this.cases.length)
 		{
-			if(cases[k].type == 'i')
+			if(this.cases[k].type == 'i')
 			{
-				return cases[k].x;
+				return this.cases[k].x;
 			}
 			else
 			{
@@ -51,11 +70,11 @@ function Labyrinthe(_mazes, _lvl) {
 	this.getStartPosY = function ()
 	{
 		var k = 0;
-		while(k<cases.length)
+		while(k < this.cases.length)
 		{
-			if(cases[k].type == 'i')
+			if(this.cases[k].type == 'i')
 			{
-				return cases[k].y;
+				return this.cases[k].y;
 			}
 			else
 			{

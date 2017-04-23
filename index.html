@@ -4,12 +4,24 @@
 		<meta charset="utf-8">
 		<meta name="Description" content="">
 
+        <style>
+            #wrapper {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+            }
+        </style>
 
 	</head>
 	<body>
+    <div id="wrapper">
 		<canvas id="canvas" width="960" height="680">
 		</canvas>
-
+    </div>
+    <script src="js/backgroundColors.js"></script>
 		<script src="js/affichage/AffichageText.js"> </script>
 		<script src="js/affichage/MultiLineText.js"></script>
 		<script src="js/affichage/Drawable.js"> </script>

@@ -96,24 +96,29 @@ function testCollision(x, y){
 	var type = laby.getCase(x, y).getType();
 	switch (type){
 		case 'w':
-		return false;
+			return false;
+
 		break;
 
 		case 'l':
 		// function allumette
-		return true;
+			console.log("J'ai touché une allumette");
+			return true;
 		break;
 
 		case 's':
-		//function sortie
-		return true;
+			//function sortie
+			return true;
 		break;
+
 		case 'm':
-		//function monster
-		return false;
+			//function monster
+			console.log("J'ai touché le monstre");
+			return false;
 		break;
+
 		default:
-		return true;
+			return true;
 		break;
 	}
 }

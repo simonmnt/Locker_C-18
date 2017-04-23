@@ -95,6 +95,8 @@ function testCollision(x, y){
 		case 'm':
 			//function monster
 			console.log("J'ai touché le monstre");
+			var event = new Event('monster');
+            document.dispatchEvent(event);
 			return false;
 		break;
 

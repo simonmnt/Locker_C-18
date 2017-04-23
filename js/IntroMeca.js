@@ -90,20 +90,6 @@
     // on créer une nouvelle ligne de text
     var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
 
-    // Recuperation de l'id wrapper
-    var wrapper = document.getElementById('wrapper');
-
-    // Suivi du wrap, si canvas est plus grand 
-    if(canvas.width > wrapper.clientWidth){
-            timeX + Math.abs(parseInt
-            (
-            wrapper.style.marginLeft.replace("px", "")
-            ))}
-    if(canvas.height > wrapper.clientHeight){
-            timeY + Math.abs(parseInt(
-            wrapper.style.marginTop.replace("px", "")
-            ))}
-
     function initLaby (level) {
         console.log("init level " + level);
         window.laby = new Labyrinthe(mazes, level);
@@ -181,12 +167,18 @@
         }, messageBul.showTime + 1000);
     }
 
+    function monsterCollision() {
+        fail();
+    }
+
     function fail() {
         messageBul.text = "Vous êtes mort.";
         messageBul.state = "showing";
+        window.pause = true;
 
         setTimeout(function () {
             newLevel = true;
+            window.pause = false;
         }, messageBul.showTime + 1000);
     }
 
@@ -236,10 +228,25 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
-            mazemask.drawAllumette();
+            //mazemask.drawAllumette();
+
+            messageBul.draw();
+
+            var timeX = textChrono.x;
+            var timeY = textChrono.y;
+            // Suivi du wrap, si canvas est plus grand
+            if (canvas.width > wrapper.clientWidth) {
+                timeX = Math.abs(parseInt(canvas.style.marginLeft.replace("px", "")));
+            }
+            if (canvas.height > wrapper.clientHeight) {
+                timeY = Math.abs(parseInt(canvas.style.marginTop.replace("px", "")));
+            }
+
+            textChrono.x = timeX;
+            textChrono.y = timeY;
+            //mazemask.drawAllumette();
             textChrono.text = "Temps : " + t + "s";
             textChrono.draw(ctx);
-            messageBul.draw();
         }
     }
 
@@ -267,6 +274,7 @@
     }
 
     document.addEventListener('success', success);
+    document.addEventListener('monster', fail);
 
     window.requestAnimationFrame(refresh);
 })();

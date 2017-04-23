@@ -4,6 +4,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.y = _y;
     this.speed = 32;
     this.lastMove = Date.now();
+    this.allumette = false;
 
     this.image = new Image();
     this.image.src = src;
@@ -99,6 +100,7 @@ function testCollision(x, y){
 		case 'l':
 		// function allumette
 			console.log("J'ai touché une allumette");
+            hero.allumette = true;
 			return true;
 		break;
 

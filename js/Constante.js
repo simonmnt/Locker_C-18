@@ -3,6 +3,7 @@ var ctx = canvas.getContext('2d');
 console.log('chargé ctx');
 var niveau = 1;
 var t = 0;
+var score = 0;
 
 var hero = new Hero("img/fabworm.png", 50, 80);
 

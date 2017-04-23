@@ -53,4 +53,18 @@ function MazeMask() {
         // Rétablit le mode de composition par défaut
         ctx.globalCompositeOperation = 'source-over';
     };
+// Permet d'agrandir la vision de la carte
+    this.drawAllumette = function () {
+        ctx.globalCompositeOperation = 'destination-in';
+        if(this.mask.loaded) {
+            ctx.drawImage(this.mask,
+            0,0,
+                this.mask.naturalWidth, this.mask.naturalHeight,
+                this.x, this.y,
+                // C'est ici que l'on définit la taille de la vue du héro
+                this.mask.naturalWidth + 50, this.mask.naturalHeight + 50
+            );
+        }
+
+    }
 }

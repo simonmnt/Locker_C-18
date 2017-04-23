@@ -5,8 +5,6 @@ function Labyrinthe(_mazes, _lvl) {
     this.pixelWidth = 0;
     this.pixelHeight = 0;
 
-    this.caseEntree = null;
-
 	this.image = new Image();
 	if(true)
 	{

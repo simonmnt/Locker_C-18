@@ -76,6 +76,7 @@
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');
     window.messageBul = new MessageBulle("", 0, 0);
+    window.pause = false;
 
     function initLaby (level) {
         console.log("init level " + level);
@@ -142,8 +143,10 @@
     function success () {
         messageBul.text = bulles[level - 1];
         messageBul.state = "showing";
+        window.pause = true;
 
         setTimeout(function () {
+            window.pause = false;
             newLevel = true;
             level++;
             if (level > 7) {
@@ -203,13 +206,13 @@
         if (hero.image.pret) {
             touch();
             updateCanvasPosition();
-
-
             //laby.popMonster();
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
             mazemask.drawAllumette();
+
+            messageBul.draw();
         }
     }
 
@@ -235,6 +238,8 @@
             theEnd();
         }
     }
+
+    document.addEventListener('success', success);
 
     window.requestAnimationFrame(refresh);
 })();

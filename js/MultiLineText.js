@@ -25,6 +25,9 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
     this.color = color || "#000000";
     this.align = align || "left";
 
+    /**
+     * Dessine le texte dans le canevas
+     */
     this.draw = function () {
         var styleBackup = {
             font : ctx.font,
@@ -50,11 +53,19 @@ function MultiLineText(contentWidth, x, y, text, fontSize, lineHeight, color, al
         for (var key in styleBackup) ctx[key] = styleBackup[key];
     };
 
+    /**
+     * Renvoie la hauteur en pixel du texte dessiné
+     * @returns {number}
+     */
     this.totalHeight = function () {
         var fi = Math.round(this.fontSize);
         return this.lines().length * fi * this.lineHeight;
     };
 
+    /**
+     * Renvoie les lignes de texte
+     * @returns {Array}
+     */
     this.lines = function () {
         var lines = [];
         var curLine = "";

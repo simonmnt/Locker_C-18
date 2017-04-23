@@ -27,6 +27,9 @@ function Case(_x, _y, _type)
 		//console.log("tileset.img "+this.img.x+" "+this.img.y+" "+32+32+this.x*32+this.y*32+32+32);
 		//ctx.drawImage(tileset.img, this.img.x, this.img.y, 32, 32, this.x*32, this.y*32, 32, 32);
 		switch (this.type) {
+            case 'm':
+
+                break;
 			case 'w':
 				ctx.fillStyle = BKG_WALL_COLOR[level - 1];
 				break;
@@ -55,6 +58,6 @@ function Case(_x, _y, _type)
      * @returns type de case
      */
 	this.getType = function () {
-        return iciCase.type = _type
+        return iciCase.type;
     }
 }

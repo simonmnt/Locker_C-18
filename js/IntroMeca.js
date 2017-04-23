@@ -39,12 +39,12 @@
 ];
 
     var bulles = [
-        "Message du premier niveau",
-        "Message du deuxième niveau",
-        "Message du troisième niveau",
-        "Message du quatrième niveau",
-        "Message du cinquième niveau",
-        "Message du sixième niveau"
+        "Vous avez trouvé un message !\n\"Foutez le camp d'ici !\"" ,
+        "Une pancarte ? \n\"Par ici ! Vite !\"",
+        "Vous avez trouvé un coffre. Il est fermé à clef…",
+        "Vous avez trouvé une clef !\n Elle peut ouvrir le coffre !\n Il est vide ! Super !",
+        "Vous avez trouvé une pierre ! Qu'elle est belle !",
+        "Cool ! Une pompe à bite !"
     ];
 
     // L'index du texte à afficher dans paragraphs
@@ -89,6 +89,20 @@
 
     // on créer une nouvelle ligne de text
     var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
+
+    // Recuperation de l'id wrapper
+    var wrapper = document.getElementById('wrapper');
+
+    // Suivi du wrap, si canvas est plus grand 
+    if(canvas.width > wrapper.clientWidth){
+            timeX + Math.abs(parseInt
+            (
+            wrapper.style.marginLeft.replace("px", "")
+            ))}
+    if(canvas.height > wrapper.clientHeight){
+            timeY + Math.abs(parseInt(
+            wrapper.style.marginTop.replace("px", "")
+            ))}
 
     function initLaby (level) {
         console.log("init level " + level);

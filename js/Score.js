@@ -1,5 +1,6 @@
 ﻿function Score(){
-	temps += 1;
+
+	score += 1;
 }
 
-var intervalScore = setInterval(Score(), 1000);
+setInterval(Score(), 1000);

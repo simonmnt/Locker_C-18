@@ -78,6 +78,18 @@
     window.messageBul = new MessageBulle("", 0, 0);
     window.pause = false;
 
+     // Variable temps
+    var t = 0;
+
+    // agrémenter le chrono
+    function chrono(){
+        t++;
+    }
+    setInterval(chrono, 1000);
+
+    // on créer une nouvelle ligne de text
+    var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
+
     function initLaby (level) {
         console.log("init level " + level);
         window.laby = new Labyrinthe(mazes, level);
@@ -211,7 +223,8 @@
             //AffichageText();
             hero.draw(ctx);
             mazemask.drawAllumette();
-
+            textChrono.text = "Temps : " + t + "s";
+            textChrono.draw(ctx);
             messageBul.draw();
         }
     }

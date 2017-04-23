@@ -157,6 +157,10 @@
         }, messageBul.showTime + 1000);
     }
 
+    function theEnd() {
+        var endTitleText =
+    }
+
     /**
      * Méthode appelée pour rafraîchir en phase de jeu
      */

@@ -16,7 +16,7 @@ function MessageBulle (text, x, y) {
     this.opacity = 0;
     this.backgroundOpacity = 0.7;
     this.opacityIncrement = 0.05;
-    this.showTime = 10000;
+    this.showTime = 6000;
 
     this.lastFrameUpdate = Date.now();
 

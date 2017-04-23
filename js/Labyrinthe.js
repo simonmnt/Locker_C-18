@@ -1,6 +1,6 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
-    var triCases
+    var triCases;
     this.cases = [];
 
     this.pixelWidth = 0;
@@ -104,7 +104,43 @@ function Labyrinthe(_mazes, _lvl) {
      */
 	this.popMonster = function () {
         triCases = [];
-        this.img = new Image();
+
+        //Permet de créer un tableau de cases par rapport à un type
+        for(var k = 0; k < this.cases.length; k++){
+            if (this.cases[k].getType() == "_"){
+                triCases.push(this.cases[k]);
+            }
+        }
+
+        /*for (var i = 0; i < this.nbMonstre; i++){
+            var random = Math.floor(Math.random() * triCases.length);
+            var randomX = triCases[random].x * 32;
+            var randomY = triCases[random].y * 32;
+
+            this.cases.setType('m', randomX, randomY);
+            //ctx.drawImage(this.img, randomX, randomY);
+        }*/
+
+        console.log(iciLab.cases[1].getType());
+        console.log(iciLab.cases[1].type);
+        console.log(iciLab.cases[1]);
+
+        var typeM = 'm';
+
+        //iciLab.cases[1].setType('m');
+        iciLab.cases[1].type = typeM;
+
+        console.log(iciLab.cases[1].getType());
+        console.log(iciLab.cases[1].type);
+        console.log(iciLab.cases[1]);
+
+        console.log("triCases > ", triCases);
+        for(var k = 0; k < this.cases.length; k++){
+            if (this.cases[k].getType() == "m"){
+                console.log('Monster');
+            }
+        }
+        /*this.img = new Image();
         this.img.src = 'img/epingle.png';
         this.img.onload = function(){
             loading = true;
@@ -131,7 +167,7 @@ function Labyrinthe(_mazes, _lvl) {
         
         console.log("triCases > ", triCases);
         console.log("nbMonstre > ", this.nbMonstre);
-        console.log("Type > ", this.cases[0].getType());
+        console.log("Type > ", this.cases[0].getType());*/
     };
 
     this.popAllumettes = function () {

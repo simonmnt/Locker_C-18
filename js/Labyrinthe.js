@@ -1,5 +1,6 @@
 function Labyrinthe(_mazes, _lvl) {
 	var iciLab = this;
+    var triCases
     this.cases = [];
 
     this.pixelWidth = 0;
@@ -102,7 +103,7 @@ function Labyrinthe(_mazes, _lvl) {
      * Permet de faire appaître les monstres sur le labyrinthe de façon aléatoire et sur des types de cases données
      */
 	this.popMonster = function () {
-        var triCases = [];
+        triCases = [];
         this.img = new Image();
         this.img.src = 'img/epingle.png';
         this.img.onload = function(){
@@ -134,7 +135,7 @@ function Labyrinthe(_mazes, _lvl) {
     };
 
     this.popAllumettes = function () {
-        var triCases = [];
+        triCases = [];
         this.img = new Image();
         this.img.src = 'img/allumettes.png';
         this.img.onload = function(){

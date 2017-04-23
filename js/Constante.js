@@ -3,7 +3,7 @@ var ctx = canvas.getContext('2d');
 console.log('chargé ctx');
 var niveau = 1;
 
-var hero = new Hero("img/fabworm.png", 50, 80);
+var hero = new Hero("../../img/fabwormtest.png", 50, 80);
 
 function background () {
     ctx.fillStyle = "#0b680f";

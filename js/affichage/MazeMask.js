@@ -31,7 +31,7 @@ function MazeMask() {
     this.mask.onload = function () {
         this.loaded = true;
     };
-    this.mask.src = '../../img/MazeMask.png';
+    this.mask.src = 'img/MazeMask.png';
 
     /**
      * Méthode appelée pour dessiner le masque

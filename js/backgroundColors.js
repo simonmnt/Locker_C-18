@@ -35,6 +35,6 @@ var BKG_WALL_COLOR_LVL5 = "#f04813";
 var BKG_PASS_COLOR_LVL5 = "#ff7c52";
 
 // Couleurs pour le niveau 1
-var BKG_MAIN_COLOR_LVL1 = "#ffca74";
-var BKG_WALL_COLOR_LVL1 = "#e59411";
-var BKG_PASS_COLOR_LVL1 = "#ffb53b";
+var BKG_MAIN_COLOR_LVL6 = "#ffca74";
+var BKG_WALL_COLOR_LVL6 = "#e59411";
+var BKG_PASS_COLOR_LVL6 = "#ffb53b";

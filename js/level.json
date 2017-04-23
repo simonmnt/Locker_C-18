@@ -2,7 +2,7 @@
   "Niveau 1": {
     "nbNiveau": 1 ,
     "nbMonstre": 0,
-    "nbAllumettes": 0,
+    "nbAllumettes": 1,
     "matrice": [
       ["w","w","w","w","w","w","w","w","w","w","w","w"],
       ["i"," "," "," "," "," ","_","_","w","w","w","w"],
@@ -21,7 +21,7 @@
 
   "Niveau 2": {
     "nbNiveau": 2 ,
-    "nbMonstre": 5,
+    "nbMonstre": 2,
     "nbAllumettes": 2,
     "matrice": [
       ["i"," ","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],
@@ -53,7 +53,7 @@
 
   "Niveau 3": {
     "nbNiveau": 3 ,
-    "nbMonstre": 5,
+    "nbMonstre": 3,
     "nbAllumettes": 4,
     "matrice": [
       ["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],

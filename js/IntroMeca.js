@@ -68,6 +68,7 @@
 
     // Booléen indiquant si nous sommes dans l'intro ou non
     var isIntro = false;
+    var isEnd = false;
     var newLevel = true;
 
     window.level = 1;
@@ -145,6 +146,9 @@
         setTimeout(function () {
             newLevel = true;
             level++;
+            if (level > 7) {
+                theEnd();
+            }
         }, messageBul.showTime + 1000);
     }
 
@@ -158,7 +162,36 @@
     }
 
     function theEnd() {
-        var endTitleText =
+        var wrapper = document.getElementById("wrapper");
+        ctx.canvas.width = wrapper.clientWidth;
+        ctx.canvas.height = wrapper.clientHeight;
+        ctx.canvas.style.marginTop = 0;
+        ctx.canvas.style.marginLeft = 0;
+
+        var endTitle = "Vous êtes sorti de la consigne C18.\nVous rencontez J";
+        var credits = "Mickaël BROISAT, Alexandre DONAZZAN, Simon MINET, Stephen MORA, Gaël PHILIPPE, Tahar SADEKI";
+        var remerciements = "Merci à Gerald ABBADIE et Victorien PESTRE pour leurs enseignements, à Olivier et" +
+            " Sylvie DONAZZAN pour nous avoir accueilli chaleureusement.";
+
+        var endTitleMText = new MultiLineText(wrapper.clientWidth, canvas.width / 2, 0, endTitle, 48, 1.25, "white", "center");
+        var creditsText = new MultiLineText(wrapper.clientWidth, wrapper.clientWidth / 2, 0, credits, 24, 1.25, "white", "center");
+        var remerciementsText = new MultiLineText(wrapper.clientWidth, wrapper.clientWidth / 2, 0, remerciements, 18, 1.25, "white", "center");
+
+        var totalHeight = endTitleMText.totalHeight() + creditsText.totalHeight() + remerciementsText.totalHeight();
+        endTitleMText.y = (ctx.canvas.height - totalHeight) / 2;
+        creditsText.y = endTitleMText.y + endTitleMText.totalHeight();
+        remerciementsText.y = creditsText.y + creditsText.totalHeight();
+
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+        endTitleMText.draw();
+        creditsText.draw();
+        remerciementsText.draw();
+
+        isEnd = true;
+
     }
 
     /**
@@ -199,7 +232,11 @@
             drawGame();
         }
 
-        window.requestAnimationFrame(refresh);
+        if (!isEnd) {
+            window.requestAnimationFrame(refresh);
+        } else {
+            theEnd();
+        }
     }
 
     window.requestAnimationFrame(refresh);

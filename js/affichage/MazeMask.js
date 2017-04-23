@@ -76,8 +76,7 @@ function MazeMask() {
             zone = zone - 4;
         }
         // Si on touche une allumette, on la craque pour voir plus loin
-        if(zone <= 1 && arretdutemps < date.getTime() - 5000) {
-            hero.allumette = true;
+        if(hero.allumette && zone<1) {
             arretdutemps = date.getTime();
         }
         if(this.mask.loaded) {

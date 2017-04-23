@@ -22,6 +22,8 @@ addEventListener('keyup', function(event){
 	myKey[event.keyCode] = false;
 });
 function touch() {
+    if (pause === true) return;
+
 	if(myKey[38] && hero.y > 0  && testCollision(heroi(), heroj() - 1) && simonMove()){
 		hero.y -= hero.speed;
 		hero.lastMove = Date.now();
@@ -48,24 +50,20 @@ function touch() {
 }
 
 function simonMove(){
-if((Date.now() - hero.lastMove) > 200){
-return true;
-}else{
-	return false;
-}
+    if ((Date.now() - hero.lastMove) > 200) {
+        return true;
+    } else {
+	    return false;
+    }
 }
 
 // Recuperation position hero
 function heroi(){
-
-return ((hero.x) - (hero.x) % 32)/32;
-
+    return ((hero.x) - (hero.x) % 32) / 32;
 }
 
 function heroj(){
-
- return ((hero.y) - (hero.y) % 32)/32;
-
+    return ((hero.y) - (hero.y) % 32) / 32;
 }
 // Tester la collision
 function coordCanvasToMat(){
@@ -73,9 +71,9 @@ function coordCanvasToMat(){
 	var cols = hero.x - (hero.x % 32);
 	var rows = hero.y - (hero.y % 32);
 
-var canvToMatRowCOl = { cols , rows };
+    var canvToMatRowCOl = { cols , rows };
 
-return CanvasToMatRowCOl;
+    return CanvasToMatRowCOl;
 }
 
 
@@ -84,10 +82,9 @@ function coordCanvasToMat(cols, rows){
 	var x = 32*cols;
 	var y = 32*rows;
 
-var matTocanvRowCOl = {'col' : x,'row': y};
+    var matTocanvRowCOl = {'col' : x,'row': y};
 
-return matTocanvRowCOl;
-
+    return matTocanvRowCOl;
 }
 
 function testCollision(x, y){
@@ -96,24 +93,30 @@ function testCollision(x, y){
 	var type = laby.getCase(x, y).getType();
 	switch (type){
 		case 'w':
-		return false;
-		break;
+		    return false;
+		    break;
 
 		case 'l':
-		// function allumette
-		return true;
-		break;
+		    // function allumette
+		    return true;
+		    break;
 
 		case 's':
-		//function sortie
-		return true;
-		break;
+		    //function sortie
+            if (pause === false) {
+                var event = new Event('success');
+                document.dispatchEvent(event);
+            }
+		    return true;
+		    break;
+
 		case 'm':
-		//function monster
-		return false;
-		break;
+		    //function monster
+		    return false;
+		    break;
+
 		default:
-		return true;
-		break;
+		    return true;
+		    break;
 	}
 }

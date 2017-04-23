@@ -167,6 +167,10 @@
         }, messageBul.showTime + 1000);
     }
 
+    function monsterCollision() {
+        fail();
+    }
+
     function fail() {
         messageBul.text = "Vous êtes mort.";
         messageBul.state = "showing";
@@ -222,7 +226,7 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
-            mazemask.drawAllumette();
+            //mazemask.drawAllumette();
             textChrono.text = "Temps : " + t + "s";
             textChrono.draw(ctx);
             messageBul.draw();
@@ -253,6 +257,7 @@
     }
 
     document.addEventListener('success', success);
+    document.addEventListener('monster', monsterCollision)
 
     window.requestAnimationFrame(refresh);
 })();

@@ -12,7 +12,7 @@ var mazemask = new MazeMask();
 var date = new Date();
 
 // création de la variable qui va définir la taille maxi lorsque l'on touche une allumette
-var tailleAllumette = 120;
+var tailleAllumette = 300;
 var arretdutemps = date.getTime();
 
 // Offset des objets dans le tileset

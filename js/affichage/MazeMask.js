@@ -64,7 +64,7 @@ function MazeMask() {
         ctx.globalCompositeOperation = 'destination-in';
         // Si la zone n'est pas assez grande et si l'allumette est craqué depuis peu de temps on augmente la zone visible
         if(hero.allumette && zone <= tailleAllumette) {
-            zone = zone + 2;
+            zone = zone + 4;
         }
         // Si la zone visible et à fond et l'allumette consumé, on met l'allumette a false
         if(zone >= tailleAllumette && arretdutemps < date.getTime()-5000){
@@ -73,7 +73,7 @@ function MazeMask() {
         }
         // Si l'allumette est consummé et si la zone visible n'est pas minimal, on réduit la zone
         if(!hero.allumette && zone >= 0){
-            zone = zone - 2;
+            zone = zone - 4;
         }
         // Si on touche une allumette, on la craque pour voir plus loin
         if(zone <= 1 && arretdutemps < date.getTime() - 5000) {
@@ -85,9 +85,9 @@ function MazeMask() {
                 0, 0,
                 this.mask.naturalWidth, this.mask.naturalHeight,
                 // On centre la zone visible sur le hero
-                hero.x - 16 - zone/2, hero.y - 16 - zone/2,
+                hero.x - 32 - zone/2, hero.y - 32 - zone/2,
                 // C'est ici que l'on définit la taille de la vue du héro
-                this.mask.naturalWidth + zone, this.mask.naturalHeight + zone
+                (this.mask.naturalWidth*2 + zone), this.mask.naturalHeight*2 + zone
             );
         }
 

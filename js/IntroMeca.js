@@ -172,6 +172,7 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
+            mazemask.drawAllumette();
         }
 
     }

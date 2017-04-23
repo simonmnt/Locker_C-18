@@ -98,10 +98,12 @@ function testCollision(x, y){
 		case 'w':
 		return false;
 		break;
+
 		case 'l':
 		// function allumette
 		return true;
 		break;
+
 		case 's':
 		//function sortie
 		return true;

@@ -230,7 +230,7 @@
             hero.draw(ctx);
             //mazemask.drawAllumette();
 
-            messageBul.draw();
+
 
             var timeX = textChrono.x;
             var timeY = textChrono.y;
@@ -246,6 +246,8 @@
             textChrono.y = timeY;
             mazemask.drawAllumette();
             textChrono.text = "Temps : " + t + "s";
+
+            messageBul.draw();
             textChrono.draw(ctx);
         }
     }

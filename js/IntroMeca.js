@@ -90,6 +90,20 @@
     // on créer une nouvelle ligne de text
     var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
 
+    // Recuperation de l'id wrapper
+    var wrapper = document.getElementById('wrapper');
+
+    // Suivi du wrap, si canvas est plus grand 
+    if(canvas.width > wrapper.clientWidth){
+            timeX + Math.abs(parseInt
+            (
+            wrapper.style.marginLeft.replace("px", "")
+            ))}
+    if(canvas.height > wrapper.clientHeight){
+            timeY + Math.abs(parseInt(
+            wrapper.style.marginTop.replace("px", "")
+            ))}
+
     function initLaby (level) {
         console.log("init level " + level);
         window.laby = new Labyrinthe(mazes, level);

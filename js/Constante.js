@@ -13,6 +13,9 @@ var date = new Date();
 var tailleAllumette = 120;
 var arretdutemps = date.getTime();
 
+// Offset des objets dans le tileset
+var OBJECTS_TILESET_OFFSET = 7 * 32;
+
 function background () {
     ctx.fillStyle = "#0b680f";
     ctx.fillRect(0, 0, canvas.width, canvas.height);

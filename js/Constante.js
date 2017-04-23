@@ -4,6 +4,14 @@ console.log('chargé ctx');
 var niveau = 1;
 
 var hero = new Hero("img/fabworm.png", 50, 80);
+var mazemask = new MazeMask();
+
+// création et initialisation de la variable date
+var date = new Date();
+
+// création de la variable qui va définir la taille maxi lorsque l'on touche une allumette
+var tempdalumette = 0;
+var arretdutemps = date.getTime();
 
 function background () {
     ctx.fillStyle = "#0b680f";

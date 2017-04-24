@@ -148,6 +148,7 @@ function testCollision(x, y){
 
 		case 'l':
 		// function allumette
+			audio['allumette'].play();
 			console.log("J'ai touché une allumette");
             hero.allumette = true;
 			return true;

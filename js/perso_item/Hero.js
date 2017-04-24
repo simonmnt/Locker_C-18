@@ -51,6 +51,52 @@ addEventListener('keydown', function(event){
 addEventListener('keyup', function(event){
 	myKey[event.keyCode] = false;
 });
+
+document.getElementById("moveUp").addEventListener('mousedown', function () {
+    if(!hero.onMove) {
+        myKey[38] = true;
+        hero.onMove = true;
+    }
+});
+
+document.getElementById("moveDown").addEventListener('mousedown', function () {
+    if(!hero.onMove) {
+        myKey[40] = true;
+        hero.onMove = true;
+    }
+});
+
+document.getElementById("moveLeft").addEventListener('mousedown', function () {
+    if(!hero.onMove) {
+        myKey[37] = true;
+        hero.onMove = true;
+    }
+});
+
+document.getElementById("moveRight").addEventListener('mousedown', function () {
+    if(!hero.onMove) {
+        myKey[39] = true;
+        hero.onMove = true;
+    }
+});
+
+document.getElementById("moveUp").addEventListener('mouseup', function () {
+    myKey[38] = false;
+});
+
+document.getElementById("moveDown").addEventListener('mouseup', function () {
+    myKey[40] = false;
+});
+
+document.getElementById("moveLeft").addEventListener('mouseup', function () {
+    myKey[37] = false;
+});
+
+document.getElementById("moveRight").addEventListener('mouseup', function () {
+    myKey[39] = false;
+});
+
+
 function touch() {
     if (pause === true) return;
 

@@ -14,7 +14,23 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.image.onload = function (){
     	this.pret = true;
     	console.log('hero chargé');
-	}
+	};
+
+	this.playDead = function () {
+        "use strict";
+
+        this.nbFrames = 8;
+        this.loop = false;
+    };
+
+	this.reborn = function () {
+	    "use strict";
+
+	    this.nbFrames = 2;
+	    this.frame = 0;
+	    this.loop = true;
+	    this.play();
+    };
 }
 
 var myKey = {};

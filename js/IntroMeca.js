@@ -29,12 +29,15 @@
         isIntro = false;
     })
 
+    // Text instruction to skip intro ! :)
+    var toSkipIntro = "\"Click to Skip Intro.\"";
+
     // Le texte d'intro
     // TODO: Déplacer dans un fichier propre
     var paragraphs = [
         "After a long and dangerous journey. Gasnam and the people of Tafsum, passed the borders of" +
         "planet Earth.\n \n" +
-        "When suddently… \nCrack ! Kabooom ! \nThe shock is brutal. The ship breaks apart…",
+        "When suddently… \nCrack ! Kabooom ! \nThe shock is brutal. The ship breaks apart…\n \n \n" + toSkipIntro,
 
         "Where is our little Gasnam going to land ?\n"+
         "And what is the gigantique world ?\n\n" +

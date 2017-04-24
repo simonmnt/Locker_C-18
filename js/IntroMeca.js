@@ -168,7 +168,7 @@
             textHeight,
             textX - (factor * 200), textY, textW + (factor * 400), textH);
 
-        factor *= 1.002;
+        factor *= 1.0015;
     }
 
     function success () {

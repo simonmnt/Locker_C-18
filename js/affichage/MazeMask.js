@@ -58,9 +58,6 @@ function MazeMask() {
 // Permet d'agrandir la vision de la carte
     this.drawAllumette = function () {
         date = new Date();
-        console.log(hero.allumette);
-        console.log(arretdutemps);
-        console.log(date.getTime());
         ctx.globalCompositeOperation = 'destination-in';
         // Si la zone n'est pas assez grande et si l'allumette est craqué depuis peu de temps on augmente la zone visible
         if(hero.allumette && zone <= tailleAllumette) {

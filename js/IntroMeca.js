@@ -24,6 +24,11 @@
 
     window.ctx = tempCanvas.getContext('2d');
 
+    // Skip Intro
+      canvas.addEventListener('click', function(event){
+        isIntro = false;
+    })
+
     // Le texte d'intro
     // TODO: Déplacer dans un fichier propre
     var paragraphs = [

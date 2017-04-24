@@ -21,6 +21,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
 
         this.nbFrames = 8;
         this.loop = false;
+        this.frameRate = 15;
     };
 
 	this.reborn = function () {
@@ -29,6 +30,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
 	    this.nbFrames = 2;
 	    this.frame = 0;
 	    this.loop = true;
+	    this.frameRate = 3;
 	    this.play();
     };
 }

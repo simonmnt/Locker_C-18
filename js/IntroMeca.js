@@ -86,6 +86,8 @@
      // Variable temps
     var t = 0;
 
+    var clock = new Drawable("img/clock.png", 16, 16);
+
 	// Variable Audio
 	window.audio = {
 	"allumette": new Audio(),
@@ -103,7 +105,7 @@
     setInterval(chrono, 1000);
 
     // on créer une nouvelle ligne de text
-    var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
+    var textChrono = new MultiLineText(100, 40, 8, "", 18, 1.25, 'white');
 
     function initLaby (level) {
         if (level <= Object.keys(mazes).length) {
@@ -247,9 +249,7 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
-            //mazemask.drawAllumette();
-
-
+            //mazemask.drawAll
 
             var timeX = textChrono.x;
             var timeY = textChrono.y;
@@ -264,9 +264,16 @@
             textChrono.x = timeX;
             textChrono.y = timeY;
             mazemask.drawAllumette();
-            textChrono.text = "Time : " + t + "s";
+
+            var seconds = t % 60;
+            var minutes = (t - seconds) / 60;
+            textChrono.text =  minutes + ":" + (seconds < 10 ? "0" + seconds : seconds) ;
 
             messageBul.draw();
+
+            clock.x = timeX - 20;
+            clock.y = timeY + 4;
+            clock.draw(ctx);
             textChrono.draw(ctx);
         }
     }

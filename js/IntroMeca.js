@@ -27,14 +27,17 @@
     // Skip Intro
       canvas.addEventListener('click', function(event){
         isIntro = false;
-    })
+    });
+
+    // Text instruction to skip intro ! :)
+    var toSkipIntro = "\"Click to Skip Intro.\"";
 
     // Le texte d'intro
     // TODO: Déplacer dans un fichier propre
     var paragraphs = [
         "After a long and dangerous journey. Gasnam and the people of Tafsum, passed the borders of" +
         "planet Earth.\n \n" +
-        "When suddently… \nCrack ! Kabooom ! \nThe shock is brutal. The ship breaks apart…",
+        "When suddently… \nCrack ! Kabooom ! \nThe shock is brutal. The ship breaks apart…\n \n \n" + toSkipIntro,
 
         "Where is our little Gasnam going to land ?\n"+
         "And what is the gigantique world ?\n\n" +
@@ -82,9 +85,12 @@
     window.tileset = new Tileset('./img/tileset.png');
     window.messageBul = new MessageBulle("", 0, 0);
     window.pause = false;
+    window.exitIndicator = new ExitIndicator();
 
      // Variable temps
     var t = 0;
+
+    var clock = new Drawable("img/clock.png", 16, 16);
 
 	// Variable Audio
 	window.audio = {
@@ -103,7 +109,7 @@
     setInterval(chrono, 1000);
 
     // on créer une nouvelle ligne de text
-    var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
+    var textChrono = new MultiLineText(100, 40, 8, "", 18, 1.25, 'white');
 
     function initLaby (level) {
         if (level <= Object.keys(mazes).length) {
@@ -249,27 +255,36 @@
             if (typeof(laby) !== 'undefined') laby.draw();
             //AffichageText();
             hero.draw(ctx);
-            //mazemask.drawAllumette();
-
-
+            //mazemask.drawAll
 
             var timeX = textChrono.x;
             var timeY = textChrono.y;
             // Suivi du wrap, si canvas est plus grand
             if (canvas.width > wrapper.clientWidth) {
-                timeX = Math.abs(parseInt(canvas.style.marginLeft.replace("px", "")));
+                timeX = Math.abs(parseInt(canvas.style.marginLeft.replace("px", ""))) + 40;
             }
             if (canvas.height > wrapper.clientHeight) {
-                timeY = Math.abs(parseInt(canvas.style.marginTop.replace("px", "")));
+                timeY = Math.abs(parseInt(canvas.style.marginTop.replace("px", ""))) + 8;
             }
 
             textChrono.x = timeX;
             textChrono.y = timeY;
             mazemask.drawAllumette();
-            textChrono.text = "Time : " + t + "s";
+
+            var seconds = t % 60;
+            var minutes = (t - seconds) / 60;
+            textChrono.text =  minutes + ":" + (seconds < 10 ? "0" + seconds : seconds) ;
 
             messageBul.draw();
+
+            clock.x = timeX - 20;
+            clock.y = timeY + 4;
+            clock.draw(ctx);
             textChrono.draw(ctx);
+
+            exitIndicator.x = hero.x + hero.width / 2;
+            exitIndicator.y = hero.y + hero.height / 2;
+            exitIndicator.draw();
         }
     }
 

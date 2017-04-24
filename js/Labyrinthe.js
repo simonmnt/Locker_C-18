@@ -143,5 +143,12 @@ function Labyrinthe(_mazes, _lvl) {
         return maze.filter(function(lacase){
             return lacase.x == x && lacase.y ==y;
         })[0];
+    };
+
+    this.getExitCase = function () {
+        var maze = iciLab.cases;
+        return maze.filter(function (lacase) {
+            return lacase.type === 's';
+        })[0];
     }
 }

@@ -168,7 +168,9 @@
             textHeight,
             textX - (factor * 200), textY, textW + (factor * 400), textH);
 
+        // facteur agrandissement texte
         factor *= 1.0015;
+
     }
 
     function success () {

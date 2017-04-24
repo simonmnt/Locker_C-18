@@ -261,10 +261,10 @@
             var timeY = textChrono.y;
             // Suivi du wrap, si canvas est plus grand
             if (canvas.width > wrapper.clientWidth) {
-                timeX = Math.abs(parseInt(canvas.style.marginLeft.replace("px", "")));
+                timeX = Math.abs(parseInt(canvas.style.marginLeft.replace("px", ""))) + 40;
             }
             if (canvas.height > wrapper.clientHeight) {
-                timeY = Math.abs(parseInt(canvas.style.marginTop.replace("px", "")));
+                timeY = Math.abs(parseInt(canvas.style.marginTop.replace("px", ""))) + 8;
             }
 
             textChrono.x = timeX;

@@ -124,7 +124,7 @@ function touch() {
 }
 
 function simonMove(){
-    if ((Date.now() - hero.lastMove) > 100 || hero.movement.length > 0) {
+    if ((Date.now() - hero.lastMove) > 15 || hero.movement.length > 0) {
         return true;
     } else {
 	    return false;

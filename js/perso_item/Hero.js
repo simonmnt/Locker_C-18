@@ -9,7 +9,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.verticalOffset = 0;
 
     this.movement = [];
-
+	this.onMove = false;
     this.image = new Image();
     this.image.src = src;
     this.image.parent = this;
@@ -44,7 +44,9 @@ function cheat(){
 
 var myKey = {};
 addEventListener('keydown', function(event){
-	myKey[event.keyCode] = true;
+	if(!hero.onMove)
+	{myKey[event.keyCode] = true;
+	hero.onMove = true;}
 });
 addEventListener('keyup', function(event){
 	myKey[event.keyCode] = false;
@@ -99,12 +101,12 @@ function touch() {
 	}
 
 	if (hero.movement.indexOf("droite") >= 0 && !testCollision(heroi(), heroj())) {
-	    hero.x += hero.speed;
-    }
+	     hero.x += hero.speed;
+     }
 
     if (hero.movement.indexOf("haut") >= 0 && !testCollision(heroi(), heroj())) {
-	    hero.y += hero.speed;
-    }
+	     hero.y += hero.speed;
+     }
 
     if (hero.x % 32 === 0 && hero.y % 32 === 0) {
         hero.movement = [];
@@ -112,6 +114,7 @@ function touch() {
         myKey[38] = false;
         myKey[39] = false;
         myKey[40] = false;
+		hero.onMove = false;
     } else {
         myKey[37] = hero.movement.indexOf("droite") >= 0;
         myKey[38] = hero.movement.indexOf("haut") >= 0;

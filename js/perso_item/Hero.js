@@ -37,6 +37,11 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     };
 }
 
+function cheat(){
+	tailleAllumette = 1800;
+	hero.allumette = true;
+}
+
 var myKey = {};
 addEventListener('keydown', function(event){
 	myKey[event.keyCode] = true;

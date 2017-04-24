@@ -67,6 +67,7 @@ function MazeMask() {
         if(zone >= tailleAllumette && arretdutemps < date.getTime()-5000){
             hero.allumette = false;
             arretdutemps = date.getTime();
+            tailleAllumette = 300;
         }
         // Si l'allumette est consummé et si la zone visible n'est pas minimal, on réduit la zone
         if(!hero.allumette && zone >= 0){

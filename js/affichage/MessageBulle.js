@@ -36,7 +36,7 @@ function MessageBulle (text, x, y) {
         this.multiline.x = rectX + (rectW / 2);
         this.multiline.y = rectY + 10;
 
-        var rectColor = "rgba(0, 0, 0, " + this.opacity * this.backgroundOpacity + ")";
+        var rectColor = "rgba(41, 41, 41, " + this.opacity * this.backgroundOpacity + ")";
         var textColor = "rgba(255, 255, 255, " + this.opacity + ")";
 
         if (this.state !== "hidden") {

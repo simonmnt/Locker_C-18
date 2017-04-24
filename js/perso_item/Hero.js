@@ -25,28 +25,36 @@ addEventListener('keyup', function(event){
 function touch() {
     if (pause === true) return;
 
-	if(myKey[38] && hero.y > 0  && testCollision(heroi(), heroj() - 1) && simonMove()){
+	if(myKey[38] && hero.y > 0 && simonMove()){
+		if(testCollision(heroi(), heroj() - 1)){
 		hero.y -= hero.speed;
 		hero.lastMove = Date.now();
 		// console.log('fleche haut');
+		}
 	}
-	if(myKey[40] && hero.y < ctx.canvas.height - hero.image.naturalHeight && testCollision(heroi(), heroj() + 1) && simonMove())
+	if(myKey[40] && hero.y < ctx.canvas.height - hero.image.naturalHeight && simonMove())
 	{
+		if(testCollision(heroi(), heroj() + 1)){
 		hero.y += hero.speed;
 		hero.lastMove = Date.now();
         // console.log('fleche bas');
+		}
 	}
-	if(myKey[37] && hero.x > 0 && testCollision(heroi() - 1, heroj()) && simonMove())
+	if(myKey[37] && hero.x > 0 && simonMove())
 	{
+		if(testCollision(heroi() - 1, heroj())){
 		hero.x -= hero.speed;
 		hero.lastMove = Date.now();
 		// console.log('fleche droite');
+		}
 	}
-	if(myKey[39]&&hero.x < ctx.canvas.width - hero.image.naturalHeight && testCollision(heroi() + 1, heroj()) && simonMove())
+	if(myKey[39]&&hero.x < ctx.canvas.width - hero.image.naturalHeight && simonMove())
 	{
+		if(testCollision(heroi() + 1, heroj())){
 		hero.x += hero.speed;
 		hero.lastMove = Date.now();
 		// console.log('fleche gauche');
+		}
 	}
 }
 

@@ -71,7 +71,7 @@
     var isEnd = false;
     var newLevel = true;
 
-    window.level = 1;
+    window.level = 2;
     window.hero = new Hero("img/fabworm.png", 50, 80);
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');
@@ -100,6 +100,8 @@
 
             hero.x = laby.getStartPosX() * 32;
             hero.y = laby.getStartPosY() * 32;
+
+            hero.reborn();
         }
     }
 
@@ -169,14 +171,12 @@
         }, messageBul.showTime + 1000);
     }
 
-    function monsterCollision() {
-        fail();
-    }
-
     function fail() {
         messageBul.text = "Vous êtes mort.";
         messageBul.state = "showing";
         window.pause = true;
+
+        hero.playDead();
 
         setTimeout(function () {
             newLevel = true;

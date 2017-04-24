@@ -21,6 +21,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
 
         this.nbFrames = 8;
         this.loop = false;
+        this.frameRate = 15;
     };
 
 	this.reborn = function () {
@@ -29,6 +30,7 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
 	    this.nbFrames = 2;
 	    this.frame = 0;
 	    this.loop = true;
+	    this.frameRate = 3;
 	    this.play();
     };
 }
@@ -50,7 +52,7 @@ function touch() {
 		// console.log('fleche haut');
 		}
 	}
-	if(myKey[40] && hero.y < ctx.canvas.height - hero.image.naturalHeight && simonMove())
+	if(myKey[40] && hero.y < (ctx.canvas.height - hero.image.naturalHeight/2) && simonMove())
 	{
 		if(testCollision(heroi(), heroj() + 1)){
 		hero.y += hero.speed;
@@ -68,7 +70,7 @@ function touch() {
 		// console.log('fleche droite');
 		}
 	}
-	if(myKey[39]&&hero.x < ctx.canvas.width - hero.image.naturalHeight && simonMove())
+	if(myKey[39]&&hero.x < (ctx.canvas.width - hero.image.naturalHeight/2) && simonMove())
 	{
 		if(testCollision(heroi() + 1, heroj())){
 		hero.x += hero.speed;

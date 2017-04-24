@@ -81,6 +81,16 @@
      // Variable temps
     var t = 0;
 
+	// Variable Audio
+	window.audio = {
+	"allumette": new Audio();
+	"monstre": new Audiio();
+	"objet" : new Audio();
+	}
+	audio['allumette'].src = "./audio/allumette.ogg";
+	audio['monstre'].src = "./audio/monstre.ogg";
+	audio['objet'].src = "./audio/objet.ogg";
+	
     // agrémenter le chrono
     function chrono(){
         t++;

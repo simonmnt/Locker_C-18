@@ -27,7 +27,7 @@
     // Skip Intro
       canvas.addEventListener('click', function(event){
         isIntro = false;
-    })
+    });
 
     // Text instruction to skip intro ! :)
     var toSkipIntro = "\"Click to Skip Intro.\"";
@@ -85,6 +85,7 @@
     window.tileset = new Tileset('./img/tileset.png');
     window.messageBul = new MessageBulle("", 0, 0);
     window.pause = false;
+    window.exitIndicator = new ExitIndicator();
 
      // Variable temps
     var t = 0;
@@ -280,6 +281,10 @@
             clock.y = timeY + 4;
             clock.draw(ctx);
             textChrono.draw(ctx);
+
+            exitIndicator.x = hero.x + hero.width / 2;
+            exitIndicator.y = hero.y + hero.height / 2;
+            exitIndicator.draw();
         }
     }
 

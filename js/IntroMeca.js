@@ -62,7 +62,7 @@
     };
 
     // Le temps d'affichage de chaque paragraphe
-    var delay = 12000;
+    var delay = 14000;
     // Timestamp du dernier rafraîchissement
     var lastupdate = -1;
 
@@ -170,7 +170,9 @@
             textHeight,
             textX - (factor * 200), textY, textW + (factor * 400), textH);
 
-        factor *= 1.002;
+        // facteur agrandissement texte
+        factor *= 1.0015;
+
     }
 
     function success () {

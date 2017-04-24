@@ -47,12 +47,15 @@ addEventListener('keyup', function(event){
 function touch() {
     if (pause === true) return;
 
+    console.log(JSON.stringify(hero.movement));
+
 	if(myKey[38] && hero.y > 0 && simonMove()){
-		if(testCollision(heroi(), heroj() - 1)){
+		if(testCollision(heroi(), heroj())){
 		hero.y -= hero.speed;
 		hero.lastMove = Date.now();
 		// console.log('fleche haut');
             if (hero.movement.indexOf("haut") === -1) hero.movement.push("haut");
+            if (hero.movement.indexOf("bas") > 0) hero.movement.splice(hero.movement.indexOf("bas"), 1);
 		}
 	}
 	if(myKey[40] && hero.y < (ctx.canvas.height - hero.image.naturalHeight/2) && simonMove())
@@ -62,17 +65,19 @@ function touch() {
 		hero.lastMove = Date.now();
         // console.log('fleche bas');
             if (hero.movement.indexOf("bas") === -1) hero.movement.push("bas");
+            if (hero.movement.indexOf("haut") > 0) hero.movement.splice(hero.movement.indexOf("haut"), 1);
 		}
 	}
 	if(myKey[37] && hero.x > 0 && simonMove())
 	{
-		if(testCollision(heroi() - 1, heroj())){
+		if(testCollision(heroi(), heroj())){
 		hero.x -= hero.speed;
 		hero.verticalOffset = 32;
-		console.log("Vartical Offset : " + hero.verticalOffset);
+
 		hero.lastMove = Date.now();
 		// console.log('fleche droite');
             if (hero.movement.indexOf("droite") === -1) hero.movement.push("droite");
+            if (hero.movement.indexOf("gauche") > 0) hero.movement.splice(hero.movement.indexOf("gauche"), 1);
 		}
 	}
 	if(myKey[39]&&hero.x < (ctx.canvas.width - hero.image.naturalHeight/2) && simonMove())
@@ -80,15 +85,25 @@ function touch() {
 		if(testCollision(heroi() + 1, heroj())){
 		hero.x += hero.speed;
 		hero.verticalOffset = 0;
+
 		hero.lastMove = Date.now();
 		// console.log('fleche gauche');
             if (hero.movement.indexOf("gauche") === -1) hero.movement.push("gauche");
+            if (hero.movement.indexOf("droite") > 0) hero.movement.splice(hero.movement.indexOf("droite"), 1);
 		}
 	}
 
-	if (hero.x % 32 === 0 && hero.y % 32 === 0) {
-	    hero.movement = [];
-	    myKey[37] = false;
+	if (hero.movement.indexOf("droite") >= 0 && !testCollision(heroi(), heroj())) {
+	    hero.x += hero.speed;
+    }
+
+    if (hero.movement.indexOf("haut") >= 0 && !testCollision(heroi(), heroj())) {
+	    hero.y += hero.speed;
+    }
+
+    if (hero.x % 32 === 0 && hero.y % 32 === 0) {
+        hero.movement = [];
+        myKey[37] = false;
         myKey[38] = false;
         myKey[39] = false;
         myKey[40] = false;
@@ -101,7 +116,7 @@ function touch() {
 }
 
 function simonMove(){
-    if ((Date.now() - hero.lastMove) > 200 || hero.movement.length > 0) {
+    if ((Date.now() - hero.lastMove) > 100 || hero.movement.length > 0) {
         return true;
     } else {
 	    return false;

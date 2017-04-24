@@ -27,24 +27,24 @@
     // Le texte d'intro
     // TODO: Déplacer dans un fichier propre
     var paragraphs = [
-        "Après un long et périlleux voyage. Gasnam et les habitants de Tafsum, passèrent les frontières de " +
-        "la planète Terre.\n \n" +
-        "Mais soudain… \nCrack ! Kabooom ! \nLe choc est brutal. Le vaisseau se brise en deux…",
+        "After a long and dangerous journey. Gasnam and the people of Tafsum, passed the borders of" +
+        "planet Earth.\n \n" +
+        "When suddently… \nCrack ! Kabooom ! \nThe shock is brutal. The ship breaks apart…",
 
-        "Mais où notre petit Gasnam va-t-il atterrir ?\n"+
-        "Et quel est ce monde si vaste et démesuré ?\n\n" +
+        "Where is our little Gasnam going to land ?\n"+
+        "And what is the gigantique world ?\n\n" +
 
-        "Quelques temps plus tard, note jeune héro se réveille, mais l’obscurité l’entoure…\n" +
-        "Seul un sursaut de lumière vient de temps en temps éclaircir sa prison…"
+        "Moments later, our young hero wakes up, but he is surrounded by darkness…\n" +
+        "An only faint ray of light comes to light up his prison from time to time…"
 ];
 
     var bulles = [
-        "Vous avez trouvé un message !\n\"Foutez le camp d'ici !\"" ,
-        "Une pancarte ? \n\"Par ici ! Vite !\"",
-        "Vous avez trouvé un coffre. Il est fermé à clef…",
-        "Vous avez trouvé une clef !\n Elle peut ouvrir le coffre !\n Il est vide ! Super !",
-        "Vous avez trouvé une pierre ! Qu'elle est belle !",
-        "Cool ! Une pompe à bite !"
+        "You found a message !\n\"Get the heck out of here !\"" ,
+        "A sign ? \n\"This way ! Quick !\"",
+        "you found a chest. It is locked down…",
+        "you found a key !\n It can open the chest !\n It's empty ! Cool !",
+        "you found a gemstone ! It's beautiful !",
+        "Cool ! A dickpump !"
     ];
 
     // L'index du texte à afficher dans paragraphs
@@ -182,7 +182,7 @@
     }
 
     function fail() {
-        messageBul.text = "Vous êtes mort.";
+        messageBul.text = "You died.";
         messageBul.state = "showing";
         window.pause = true;
 
@@ -201,10 +201,10 @@
         ctx.canvas.style.marginTop = 0;
         ctx.canvas.style.marginLeft = 0;
 
-        var endTitle = "Vous êtes sorti de la consigne C18.\nVous rencontez J";
+        var endTitle = "You came out of the C18 locker.\nYou meet J";
         var credits = "Mickaël BROISAT, Alexandre DONAZZAN, Simon MINET, Stephen MORA, Gaël PHILIPPE, Tahar SADEKI";
-        var remerciements = "Merci à Gerald ABBADIE et Victorien PESTRE pour leurs enseignements, à Olivier et" +
-            " Sylvie DONAZZAN pour nous avoir accueilli chaleureusement.";
+        var remerciements = "Thanks Gerald ABBADIE and Victorien PESTRE for their teeching, to Olivier and" +
+            " Sylvie DONAZZAN for their warm welcoming.";
 
         var endTitleMText = new MultiLineText(wrapper.clientWidth, canvas.width / 2, 0, endTitle, 48, 1.25, "white", "center");
         var creditsText = new MultiLineText(wrapper.clientWidth, wrapper.clientWidth / 2, 0, credits, 24, 1.25, "white", "center");
@@ -257,7 +257,7 @@
             textChrono.x = timeX;
             textChrono.y = timeY;
             mazemask.drawAllumette();
-            textChrono.text = "Temps : " + t + "s";
+            textChrono.text = "Time : " + t + "s";
 
             messageBul.draw();
             textChrono.draw(ctx);

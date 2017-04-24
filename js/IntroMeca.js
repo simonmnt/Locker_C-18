@@ -172,7 +172,7 @@
     }
 
     function success () {
-		audio['objet'].play();
+		if(sonAutorise) {audio['objet'].play()};
         messageBul.text = bulles[level - 1];
         messageBul.state = "showing";
         window.pause = true;
@@ -188,7 +188,7 @@
     }
 
     function fail() {
-		audio['monstre'].play();
+        if(sonAutorise) {audio['monstre'].play()};
         messageBul.text = "You died.";
         messageBul.state = "showing";
         window.pause = true;

@@ -54,7 +54,7 @@ addEventListener('keyup', function(event){
 function touch() {
     if (pause === true) return;
 
-    console.log(JSON.stringify(hero.movement));
+    console.log("HeroMovement > ", JSON.stringify(hero.movement));
 
 	if(myKey[38] && hero.y > 0 && simonMove()){
 		if(testCollision(heroi(), heroj())){
@@ -151,7 +151,7 @@ function testCollision(x, y){
 
 		case 'l':
 		// function allumette
-			audio['allumette'].play();
+            if(sonAutorise) {audio['allumette'].play()};
 			console.log("J'ai touché une allumette");
             hero.allumette = true;
 			return true;

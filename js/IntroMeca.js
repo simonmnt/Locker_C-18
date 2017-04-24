@@ -83,10 +83,10 @@
 
 	// Variable Audio
 	window.audio = {
-	"allumette": new Audio();
-	"monstre": new Audiio();
-	"objet" : new Audio();
-	}
+	"allumette": new Audio(),
+	"monstre": new Audio(),
+	"objet" : new Audio()
+	};
 	audio['allumette'].src = "./audio/allumette.ogg";
 	audio['monstre'].src = "./audio/monstre.ogg";
 	audio['objet'].src = "./audio/objet.ogg";

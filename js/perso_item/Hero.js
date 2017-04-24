@@ -6,6 +6,8 @@ Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.lastMove = Date.now();
     this.allumette = false;
 
+    this.verticalOffset = 0;
+
     this.image = new Image();
     this.image.src = src;
     this.image.parent = this;
@@ -44,6 +46,8 @@ function touch() {
 	{
 		if(testCollision(heroi() - 1, heroj())){
 		hero.x -= hero.speed;
+		hero.verticalOffset = 32;
+		console.log("Vartical Offset : " + hero.verticalOffset);
 		hero.lastMove = Date.now();
 		// console.log('fleche droite');
 		}
@@ -52,6 +56,7 @@ function touch() {
 	{
 		if(testCollision(heroi() + 1, heroj())){
 		hero.x += hero.speed;
+		hero.verticalOffset = 0;
 		hero.lastMove = Date.now();
 		// console.log('fleche gauche');
 		}

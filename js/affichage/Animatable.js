@@ -56,6 +56,8 @@ function Animatable(imgSrc, frameWidth, frameHeight, nbFrames, frameRate, startF
      */
     this.playing = this.autoplay;
 
+    this.verticalOffset = 0;
+
     /**
      * Lance la lecture
      */
@@ -81,7 +83,7 @@ function Animatable(imgSrc, frameWidth, frameHeight, nbFrames, frameRate, startF
         if (this.display) {
             // Coordonnées en x de la frame
             var sx = this.frame * frameWidth;
-            var sy = 0;
+            var sy = this.verticalOffset;
 
             // Si on est en lecture
             if (this.playing) {

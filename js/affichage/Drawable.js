@@ -41,6 +41,8 @@ function Drawable(imgSrc, width, height) {
      */
     this.display = true;
 
+    this.verticalOffset = 0;
+
     /**
      * L'image à afficher
      * @type {Image}
@@ -70,7 +72,7 @@ function Drawable(imgSrc, width, height) {
 
             // Dessin
             context.drawImage(this.img, // L'image
-                0, 0, // Position du clipping à la source
+                0, this.verticalOffset, // Position du clipping à la source
                 this.img.naturalWidth, this.img.naturalHeight, // Dimension du clipping à la source
                 this.x, this.y, // Position dans le canvas
                 this.width, this.height); // Dimensions du dessin

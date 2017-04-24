@@ -40,3 +40,20 @@ function touch() {
 		console.log('fleche gauche');
 	}
 }
+// Afficher les images d'ojct recus. Sac-a-dos*
+this.draw = function HeroBag(){
+    var x = 8;
+    var y = 0;
+    var posX = 50;
+    var posY = 40;
+    // var i = 2;
+        if(mazes['Niveau 1']){
+            ctx.drawImage(tileset.img, x*32, y*32, 32, 32, posX, posY, 32, 32);
+            console.log('draw images');
+            x++;
+            //i++;
+            posX -= 32;
+        }
+    }
+             window.heroBag = new HeroBag();
+             hero.draw(ctx);

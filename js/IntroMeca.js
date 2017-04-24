@@ -71,7 +71,7 @@
     var isEnd = false;
     var newLevel = true;
 
-    window.level = 1;
+    window.level = 6;
     window.hero = new Hero("img/fabworm.png", 50, 80);
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');
@@ -91,14 +91,16 @@
     var textChrono = new MultiLineText(100, 20, 8, text, 18, 1.25, 'white');
 
     function initLaby (level) {
-        console.log("init level " + level);
-        window.laby = new Labyrinthe(mazes, level);
-        laby.genererCarte();
-        laby.popMonster();
-        laby.popAllumettes();
+        if (level <= Object.keys(mazes).length) {
+            console.log("init level " + level);
+            window.laby = new Labyrinthe(mazes, level);
+            laby.genererCarte();
+            laby.popMonster();
+            laby.popAllumettes();
 
-        hero.x = laby.getStartPosX() * 32;
-        hero.y = laby.getStartPosY() * 32;
+            hero.x = laby.getStartPosX() * 32;
+            hero.y = laby.getStartPosY() * 32;
+        }
     }
 
     /**

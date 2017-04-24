@@ -2,11 +2,13 @@ function Hero(src, _x, _y) {
 Animatable.call(this, src, 32, 32, 2, 3, 0, true, true);
     this.x = _x;
     this.y = _y;
-    this.speed = 32;
+    this.speed = 4;
     this.lastMove = Date.now();
     this.allumette = false;
 
     this.verticalOffset = 0;
+
+    this.movement = [];
 
     this.image = new Image();
     this.image.src = src;
@@ -50,6 +52,7 @@ function touch() {
 		hero.y -= hero.speed;
 		hero.lastMove = Date.now();
 		// console.log('fleche haut');
+            if (hero.movement.indexOf("haut") === -1) hero.movement.push("haut");
 		}
 	}
 	if(myKey[40] && hero.y < (ctx.canvas.height - hero.image.naturalHeight/2) && simonMove())
@@ -58,6 +61,7 @@ function touch() {
 		hero.y += hero.speed;
 		hero.lastMove = Date.now();
         // console.log('fleche bas');
+            if (hero.movement.indexOf("bas") === -1) hero.movement.push("bas");
 		}
 	}
 	if(myKey[37] && hero.x > 0 && simonMove())
@@ -68,6 +72,7 @@ function touch() {
 		console.log("Vartical Offset : " + hero.verticalOffset);
 		hero.lastMove = Date.now();
 		// console.log('fleche droite');
+            if (hero.movement.indexOf("droite") === -1) hero.movement.push("droite");
 		}
 	}
 	if(myKey[39]&&hero.x < (ctx.canvas.width - hero.image.naturalHeight/2) && simonMove())
@@ -77,12 +82,26 @@ function touch() {
 		hero.verticalOffset = 0;
 		hero.lastMove = Date.now();
 		// console.log('fleche gauche');
+            if (hero.movement.indexOf("gauche") === -1) hero.movement.push("gauche");
 		}
 	}
+
+	if (hero.x % 32 === 0 && hero.y % 32 === 0) {
+	    hero.movement = [];
+	    myKey[37] = false;
+        myKey[38] = false;
+        myKey[39] = false;
+        myKey[40] = false;
+    } else {
+        myKey[37] = hero.movement.indexOf("droite") >= 0;
+        myKey[38] = hero.movement.indexOf("haut") >= 0;
+        myKey[39] = hero.movement.indexOf("gauche") >= 0;
+        myKey[40] = hero.movement.indexOf("bas") >= 0;
+    }
 }
 
 function simonMove(){
-    if ((Date.now() - hero.lastMove) > 200) {
+    if ((Date.now() - hero.lastMove) > 200 || hero.movement.length > 0) {
         return true;
     } else {
 	    return false;

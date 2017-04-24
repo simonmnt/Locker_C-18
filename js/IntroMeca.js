@@ -62,7 +62,7 @@
     };
 
     // Le temps d'affichage de chaque paragraphe
-    var delay = 12000;
+    var delay = 14000;
     // Timestamp du dernier rafraîchissement
     var lastupdate = -1;
 

@@ -67,11 +67,11 @@
     var factor = 0.2;
 
     // Booléen indiquant si nous sommes dans l'intro ou non
-    var isIntro = false;
+    var isIntro = true;
     var isEnd = false;
     var newLevel = true;
 
-    window.level = 2;
+    window.level = 1;
     window.hero = new Hero("img/fabworm.png", 50, 80);
     window.laby = null;
     window.tileset = new Tileset('./img/tileset.png');

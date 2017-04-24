@@ -52,7 +52,7 @@ function touch() {
 		// console.log('fleche haut');
 		}
 	}
-	if(myKey[40] && hero.y < ctx.canvas.height - hero.image.naturalHeight && simonMove())
+	if(myKey[40] && hero.y < (ctx.canvas.height - hero.image.naturalHeight/2) && simonMove())
 	{
 		if(testCollision(heroi(), heroj() + 1)){
 		hero.y += hero.speed;
@@ -70,7 +70,7 @@ function touch() {
 		// console.log('fleche droite');
 		}
 	}
-	if(myKey[39]&&hero.x < ctx.canvas.width - hero.image.naturalHeight && simonMove())
+	if(myKey[39]&&hero.x < (ctx.canvas.width - hero.image.naturalHeight/2) && simonMove())
 	{
 		if(testCollision(heroi() + 1, heroj())){
 		hero.x += hero.speed;
